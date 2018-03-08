@@ -1,5 +1,5 @@
 import javax.swing.*;
 
-public class JavPlay extends JFrame {
-
+public class JavPlay {
+    private JPanel panel1;
 }
