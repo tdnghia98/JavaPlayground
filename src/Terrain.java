@@ -9,10 +9,9 @@ public class Terrain {
         2: diamants
         3: caillou
         4: personnage
-        5: case depart
          */
         int[][] m = {
-            {5,0,0,0,0,0},
+            {4,0,0,0,0,0},
             {0,0,3,0,0,0},
             {2,0,1,0,0,0},
             {0,0,0,0,0,0},
