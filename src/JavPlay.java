@@ -44,7 +44,7 @@ public class JavPlay extends JFrame{
         panCon.setBounds(10,10,480,80);
         panU.setBounds(10,210,480,380);
         panBtn.setBounds(10,100,480,100);
-        panS.setBounds(500,10,);
+        panS.setBounds(490,10,);
 
 
     }
