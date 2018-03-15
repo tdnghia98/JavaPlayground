@@ -4,6 +4,7 @@ public class Personnage {
     int cote;   // La direction
     Terrain t;
     int[][] map;
+    int score = 0;
 
     public Personnage (Terrain terre){
         t = terre;
@@ -58,7 +59,6 @@ public class Personnage {
     }
 
     public void avance() {
-        checkDevant(1);
         checkDevant(0);
     }
 
@@ -78,8 +78,9 @@ public class Personnage {
         }
     }
 
-    public void collect() {
+    public void avanceAndCollect() {
         checkDevant(1);
+        score ++;
     }
 }
 

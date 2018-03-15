@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class PanelConsigne extends JFrame{
+public class PanelConsigne extends JPanel{
     JTextArea consigne;
     JScrollPane con_s;
     public PanelConsigne() {

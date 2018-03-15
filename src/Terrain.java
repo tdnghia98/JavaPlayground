@@ -2,8 +2,9 @@ public class Terrain {
     public int[][] map;  // Le plan du terrain
     final int taille = 4;   // La taille du terrain
     boolean fini = false;
+    int scoreMax;
 
-    public Terrain() {
+    public Terrain(int sMax) {
         /* 0: case vide
         1: case final
         2: diamants
@@ -22,5 +23,6 @@ public class Terrain {
             {0,0,0,0,0,0}
         };
         map = m;
+        scoreMax = sMax;
     }
 }
