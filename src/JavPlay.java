@@ -78,7 +78,7 @@ public class JavPlay extends JFrame {
         turnr.addActionListener(this);
         turnl.addActionListener(this);
         play.addActionListener(this);*/
-
+        
     }
 
 
