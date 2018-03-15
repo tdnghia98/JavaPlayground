@@ -8,8 +8,10 @@ public class PanelButton extends JFrame{
     private JButton turnl;
     private JButton delete;
     public ArrayList<Integer> commande;
+    PanelUser panUser;
 
-    public PanelButton(){
+    public PanelButton(PanelUser uPan){
+        panUser = uPan;
         commande = new ArrayList<Integer>();
         avc = new JButton("Avancer"); //1
         coll = new JButton("Collecter"); //2
@@ -27,11 +29,26 @@ public class PanelButton extends JFrame{
         this.add(turnl);
         this.add(delete);
 
-        avc.addActionListener(e -> commande.add(1));
-        coll.addActionListener(e -> commande.add(2));
-        turnr.addActionListener(e -> commande.add(3));
-        turnl.addActionListener(e -> commande.add(4));
-        delete.addActionListener(e -> commande.remove(commande.size()));
+        avc.addActionListener(e -> {
+            commande.add(1);
+            panUser.repaint();
+        });
+        coll.addActionListener(e -> {
+            commande.add(2);
+            panUser.repaint();
+        });
+        turnr.addActionListener(e -> {
+            commande.add(3);
+            panUser.repaint();
+        });
+        turnl.addActionListener(e -> {
+            commande.add(4);
+            panUser.repaint();
+        });
+        delete.addActionListener(e -> {
+            commande.remove(commande.size());
+            panUser.repaint();
+        });
 
     }
 }
