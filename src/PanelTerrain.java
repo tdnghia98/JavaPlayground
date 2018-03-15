@@ -37,7 +37,6 @@ public class PanelTerrain extends JPanel {
             }
         }
 
-
     }
 
 }
