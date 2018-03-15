@@ -7,7 +7,7 @@ public class PanelButton extends JFrame{
     private JButton turnr;
     private JButton turnl;
     private JButton delete;
-    private ArrayList<Integer> commande;
+    public ArrayList<Integer> commande;
 
     public PanelButton(){
         commande = new ArrayList<Integer>();
