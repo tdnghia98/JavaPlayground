@@ -31,7 +31,7 @@ public class PanelButton extends JFrame{
         coll.addActionListener(e -> commande.add(2));
         turnr.addActionListener(e -> commande.add(3));
         turnl.addActionListener(e -> commande.add(4));
-        delete.addActionListener(e -> commande.add(5));
+        delete.addActionListener(e -> commande.remove(commande.size()));
 
     }
 }
