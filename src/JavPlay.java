@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
-public class JavPlay extends JFrame implements ActionListener{
+public class JavPlay extends JFrame {
     private PanelTerrain panM;    // Le terrain
     private PanelConsigne panCon;
     private PanelUser panU;
