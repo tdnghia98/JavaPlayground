@@ -54,9 +54,9 @@ public class JavPlay extends JFrame {
         //on place les objets
         panMain.setBounds(0,50,800,600);
         panCon.setBounds(10,10,480,80);
-        panU.setBounds(10,210,480,380);
-        panU.setBackground(Color.CYAN);
         panBtn.setBounds(10,100,480,100);
+        panU.setBackground(Color.CYAN);
+        panU.setBounds(10,210,480,380);
         panS.setBounds(490,10,300,50);
         panM.setBounds(490,65,300,450);
         panP.setBounds(490,540,300,50);
@@ -86,6 +86,7 @@ public class JavPlay extends JFrame {
         this.setContentPane(panMain);
         this.setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        repaint();
         /*avc.addActionListener(this);
         coll.addActionListener(this);
         turnr.addActionListener(this);
