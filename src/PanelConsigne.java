@@ -6,7 +6,6 @@ public class PanelConsigne extends JPanel{
     JScrollPane con_s;
 
     public PanelConsigne() {
-
         consigne = new JTextArea("But : collecter tous les diaments et atteindre la case rouge");
         con_s = new JScrollPane(consigne);
         con_s.add(consigne);
