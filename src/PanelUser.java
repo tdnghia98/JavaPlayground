@@ -12,6 +12,8 @@ public class PanelUser extends JPanel {
     public PanelUser(PanelButton butts){
         commandes = butts.commande;
         uText = new JTextArea();
+        uText.setBounds(0,0,getWidth(),getHeight());
+        add(uText);
     }
 
     public void paint(Graphics g) {

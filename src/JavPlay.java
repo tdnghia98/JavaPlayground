@@ -24,6 +24,7 @@ public class JavPlay extends JFrame {
         p = person;
         terrain = t;
         this.setSize(800,650);
+        setLayout(null);
         //panel
         panMain = new JPanel();
         panMain.setLayout(null);

@@ -21,7 +21,7 @@ public class PanelTerrain extends JPanel {
                 g.drawRect(i*carre_cote, j*carre_cote,carre_cote,carre_cote);
                 // On dessine ensuite des objets
 
-                switch (map[i][j]) {
+                switch (map[i][j]) {    // Taille d'un carre: 50x50 px
                     case 1: g.setColor(Color.RED); // La case finale
                         g.fillRect(i*carre_cote, j*carre_cote,carre_cote,carre_cote);
                         break;
