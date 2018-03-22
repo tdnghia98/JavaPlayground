@@ -14,7 +14,7 @@ public class PanelUser extends JPanel {
         commandes = butts.commande;
         uText = new JTextArea();
         uScroll = new JScrollPane(uText);
-        uScroll.setBounds(0,0,getWidth(),getHeight());
+        uScroll.setBounds(5,5,200,300);
         add(uScroll);
     }
 
