@@ -23,16 +23,16 @@ public class PanelTerrain extends JPanel {
 
                 switch (map[i][j]) {
                     case 1: g.setColor(Color.RED); // La case finale
-                        g.drawRect(i*carre_cote, j*carre_cote,carre_cote,carre_cote);
+                        g.fillRect(i*carre_cote, j*carre_cote,carre_cote,carre_cote);
                         break;
                     case 2: g.setColor(Color.CYAN); // Le diamant
-                        g.drawRect(i*carre_cote + 5, j*carre_cote + 5,40,40);
+                        g.fillRect(i*carre_cote + 5, j*carre_cote + 5,40,40);
                         break;
                     case 3: g.setColor(Color.GRAY); // Le caillou
-                        g.drawRect(i*carre_cote + 5, j*carre_cote + 5,40,40);
+                        g.fillRect(i*carre_cote + 5, j*carre_cote + 5,40,40);
                         break;
                     case 4: g.setColor(Color.PINK); // Le personnage
-                        g.drawRect(i*carre_cote + 5, j*carre_cote + 5,40,40);
+                        g.fillRect(i*carre_cote + 5, j*carre_cote + 5,40,40);
                         break;
 
                 }
