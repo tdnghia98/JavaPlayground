@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class JavPlay extends JFrame {
@@ -54,6 +55,7 @@ public class JavPlay extends JFrame {
         panMain.setBounds(0,50,800,600);
         panCon.setBounds(10,10,480,80);
         panU.setBounds(10,210,480,380);
+        panU.setBackground(Color.CYAN);
         panBtn.setBounds(10,100,480,100);
         panS.setBounds(490,10,300,50);
         panM.setBounds(490,65,300,450);

@@ -4,10 +4,7 @@
     <list default="true" id="b07336e5-cca5-4759-a82f-1c5371413c35" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/JavPlay.java" afterPath="$PROJECT_DIR$/src/JavPlay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PanelConsigne.java" afterPath="$PROJECT_DIR$/src/PanelConsigne.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PanelScore.java" afterPath="$PROJECT_DIR$/src/PanelScore.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PanelTerrain.java" afterPath="$PROJECT_DIR$/src/PanelTerrain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PanelUser.java" afterPath="$PROJECT_DIR$/src/PanelUser.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JavPlay.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="JavPlay.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/JavPlay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="26" column="24" lean-forward="false" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+            <state relative-caret-position="261">
+              <caret line="58" column="28" lean-forward="false" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -55,8 +52,8 @@
       <file leaf-file-name="PanelTerrain.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PanelTerrain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="23" column="70" lean-forward="false" selection-start-line="23" selection-start-column="70" selection-end-line="23" selection-end-column="70" />
+            <state relative-caret-position="220">
+              <caret line="25" column="86" lean-forward="false" selection-start-line="25" selection-start-column="86" selection-end-line="25" selection-end-column="86" />
               <folding />
             </state>
           </provider>
@@ -72,7 +69,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PanelScore.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PanelScore.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PanelScore.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
@@ -105,7 +102,7 @@
       <file leaf-file-name="PanelButton.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PanelButton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
+            <state relative-caret-position="-268">
               <caret line="3" column="39" lean-forward="false" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
               <folding />
             </state>
@@ -145,10 +142,10 @@
       <list>
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/PanelButton.java" />
-        <option value="$PROJECT_DIR$/src/PanelTerrain.java" />
         <option value="$PROJECT_DIR$/src/PanelConsigne.java" />
         <option value="$PROJECT_DIR$/src/PanelScore.java" />
         <option value="$PROJECT_DIR$/src/PanelUser.java" />
+        <option value="$PROJECT_DIR$/src/PanelTerrain.java" />
         <option value="$PROJECT_DIR$/src/JavPlay.java" />
       </list>
     </option>
@@ -325,6 +322,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="b07336e5-cca5-4759-a82f-1c5371413c35" name="Default" comment="" />
@@ -333,7 +333,7 @@
       <option name="presentableId" value="Default" />
       <updated>1521702714445</updated>
       <workItem from="1521702718477" duration="1342000" />
-      <workItem from="1521704078475" duration="1539000" />
+      <workItem from="1521704078475" duration="2139000" />
     </task>
     <task id="LOCAL-00001" summary="Changed Terran's constructor">
       <created>1521703153461</created>
@@ -370,11 +370,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521704637295</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added objects to classes">
+      <created>1521705635264</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1521705635264</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2881000" />
+    <option name="totallyTimeSpent" value="3481000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -422,7 +429,8 @@
     <MESSAGE value="Change to fit with the main method" />
     <MESSAGE value="No more bug but it looks so bad" />
     <MESSAGE value="PanelTerrain" />
-    <option name="LAST_COMMIT_MESSAGE" value="PanelTerrain" />
+    <MESSAGE value="added objects to classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="added objects to classes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -517,42 +525,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="3" column="39" lean-forward="false" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PanelConsigne.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/JavPlay.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="26" column="24" lean-forward="false" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PanelTerrain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="23" column="70" lean-forward="false" selection-start-line="23" selection-start-column="70" selection-end-line="23" selection-end-column="70" />
           <folding />
         </state>
       </provider>
@@ -569,6 +545,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="39" lean-forward="true" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PanelUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PanelButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-268">
+          <caret line="3" column="39" lean-forward="false" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PanelTerrain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="25" column="86" lean-forward="false" selection-start-line="25" selection-start-column="86" selection-end-line="25" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JavPlay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="58" column="28" lean-forward="false" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="28" />
           <folding />
         </state>
       </provider>

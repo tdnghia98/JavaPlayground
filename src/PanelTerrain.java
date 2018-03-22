@@ -14,17 +14,16 @@ public class PanelTerrain extends JPanel {
     public void paint (Graphics g) {
         // Dessiner le plan du terrain
         int carre_cote = 50;    // La taille d'une case
-        g.setColor(Color.green);    // La couleur de la case
         for (int i  = 0; i < map.length; i++) {
             for (int j = 0; j < map[0].length; j++) {
                 // On dessine d'abord tout les case
-                g.drawRect(i*carre_cote, j*carre_cote,carre_cote,carre_cote);
+                g.fillRect(i*carre_cote, j*carre_cote,carre_cote,carre_cote);
                 // On dessine ensuite des objets
 
                 switch (map[i][j]) {    // Taille d'un carre: 50x50 px
                     case 1: g.setColor(Color.RED); // La case finale
                         g.fillRect(i*carre_cote, j*carre_cote,carre_cote,carre_cote);
-                        g.setColor(Color.green);
+                        g.setColor(Color.green);    // Remettre le vert pour les cases
                         break;
                     case 2: g.setColor(Color.CYAN); // Le diamant
                         g.fillRect(i*carre_cote + 5, j*carre_cote + 5,40,40);
