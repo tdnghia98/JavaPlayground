@@ -60,6 +60,9 @@ public class JavPlay extends JFrame {
         panS.setBounds(490,10,300,50);
         panM.setBounds(490,65,300,450);
         panP.setBounds(490,540,300,50);
+        panBtn.setBackground(Color.CYAN);
+        panCon.setBackground(Color.RED);
+        panS.setBackground(Color.green);
         /*cons = new JLabel("Consigne : atteindre la case rouge et collecter tous les diamants")
         avc.setBounds(10,5,40,20);
         coll.setBounds(10,75,40,20);
