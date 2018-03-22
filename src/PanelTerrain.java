@@ -16,7 +16,7 @@ public class PanelTerrain extends JPanel {
         int carre_cote = 50;    // La taille d'une case
         g.setColor(Color.green);    // La couleur de la case
         for (int i  = 0; i < map.length; i++) {
-            for (int j = 0; j < map.length; j++) {
+            for (int j = 0; j < map[0].length; j++) {
                 // On dessine d'abord tout les case
                 g.drawRect(i*carre_cote, j*carre_cote,carre_cote,carre_cote);
                 // On dessine ensuite des objets

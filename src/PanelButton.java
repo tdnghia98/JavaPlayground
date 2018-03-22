@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.util.ArrayList;
 
-public class PanelButton extends JFrame{
+public class PanelButton extends JPanel{
     private JButton avc;
     private JButton coll;
     private JButton turnr;
