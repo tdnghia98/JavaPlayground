@@ -8,7 +8,8 @@ public class PanelConsigne extends JPanel{
     public PanelConsigne() {
         consigne = new JTextArea("But : collecter tous les diaments et atteindre la case rouge");
         con_s = new JScrollPane(consigne);
-        con_s.add(consigne);
+        con_s.setBounds(10,10,300,70);
+
         add(con_s);
     }
 }
