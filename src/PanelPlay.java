@@ -25,9 +25,14 @@ public class PanelPlay extends JPanel {
             for (int i : commandes) {
                 switch (i) {
                     case 1: p.avance();
+                        break;
                     case 2: p.avanceAndCollect();
+                        break;
                     case 3: p.gauche();
+                        break;
                     case 4: p.droite();
+                        break;
+                    default: break;
                 }
                 terrePan.repaint();
             }
