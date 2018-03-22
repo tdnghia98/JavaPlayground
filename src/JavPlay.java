@@ -3,6 +3,7 @@ import java.awt.event.ActionListener;
 
 public class JavPlay extends JFrame {
     Terrain terrain;
+    Personnage p;
     private PanelTerrain panM;    // Le panel terrain
     private PanelConsigne panCon;
     private PanelUser panU;
@@ -17,9 +18,10 @@ public class JavPlay extends JFrame {
     private JButton play;
     private JLabel cons;*/
 
-    public JavPlay(Terrain t){
+    public JavPlay(Terrain t, Personnage person){
         // Dessiner le plan du terrain
         super("Java Playground");
+        p = person;
         terrain = t;
         this.setSize(800,650);
         //panel
@@ -27,16 +29,18 @@ public class JavPlay extends JFrame {
         panMain.setLayout(null);
         panCon = new PanelConsigne();
         panCon.setLayout(null);
-        panU = new PanelUser();
-        panU.setLayout(null);
         panBtn = new PanelButton();
         panBtn.setLayout(null);
-        panS = new PanelScore();
+        panU = new PanelUser(panBtn);
+        panU.setLayout(null);
+        panBtn.panUser = panU;  // Assign the userPanel to the ButtonPanel
+        panS = new PanelScore(p,terrain);
         panS.setLayout(null);
-        panP = new PanelPlay();
-        panP.setLayout(null);
-        panM = new PanelTerrain();
+        panM = new PanelTerrain(terrain);
         panM.setLayout(null);
+        panP = new PanelPlay(panBtn,p,panM);
+        panP.setLayout(null);
+
 
         /*
         avc = new JButton("Avancer");

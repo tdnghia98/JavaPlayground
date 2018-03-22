@@ -10,8 +10,7 @@ public class PanelButton extends JFrame{
     public ArrayList<Integer> commande;
     PanelUser panUser;
 
-    public PanelButton(PanelUser uPan){
-        panUser = uPan;
+    public PanelButton(){
         commande = new ArrayList<Integer>();
         avc = new JButton("Avancer"); //1
         coll = new JButton("Collecter"); //2

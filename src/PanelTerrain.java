@@ -2,10 +2,12 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PanelTerrain extends JPanel {
+    Terrain t;
     private int[][] map;
 
-    public PanelTerrain (int[][] m) {
-        map = m;
+    public PanelTerrain (Terrain terre) {
+        t = terre;
+        map = terre.map;
 
     }
 
