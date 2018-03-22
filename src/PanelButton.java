@@ -46,7 +46,7 @@ public class PanelButton extends JPanel{
             panUser.repaint();
         });
         delete.addActionListener(e -> {
-            commande.remove(commande.size());
+            commande.remove(commande.size()-1);
             panUser.repaint();
         });
 

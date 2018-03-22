@@ -19,13 +19,19 @@ public class PanelUser extends JPanel {
     }
 
     public void paint(Graphics g) {
+        uText.setText("");
         commandesAffiche = "";
         for (int i : commandes) {
             switch (i) {
                 case 1: commandesAffiche += "avance();\n";
+                    break;
                 case 2: commandesAffiche += "collecter();\n";
+                    break;
                 case 3: commandesAffiche += "tournerGauche();\n";
+                    break;
                 case 4: commandesAffiche += "tournerDroite();\n";
+                    break;
+                default: break;
             }
         }
         uText.setText(commandesAffiche);
