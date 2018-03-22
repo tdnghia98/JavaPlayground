@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 
 public class JavPlay extends JFrame {
-    private Terrain terrain;
+    Terrain terrain;
     private PanelTerrain panM;    // Le panel terrain
     private PanelConsigne panCon;
     private PanelUser panU;
@@ -18,9 +18,9 @@ public class JavPlay extends JFrame {
     private JLabel cons;*/
 
     public JavPlay(Terrain t){
-        terrain = t;
         // Dessiner le plan du terrain
         super("Java Playground");
+        terrain = t;
         this.setSize(800,650);
         //panel
         panMain = new JPanel();
@@ -35,7 +35,7 @@ public class JavPlay extends JFrame {
         panS.setLayout(null);
         panP = new PanelPlay();
         panP.setLayout(null);
-        panM = new PanelTerrain(M);
+        panM = new PanelTerrain();
         panM.setLayout(null);
 
         /*
