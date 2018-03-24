@@ -29,7 +29,7 @@ public class JavPlay extends JFrame {
         //panel
         panMain = new JPanel();
         panMain.setLayout(null);
-        panCon = new PanelConsigne();
+        panCon = new PanelConsigne(p);
         panCon.setLayout(null);
         panBtn = new PanelButton();
         panBtn.setLayout(null);
@@ -40,7 +40,7 @@ public class JavPlay extends JFrame {
         panS.setLayout(null);
         panM = new PanelTerrain(terrain);
         panM.setLayout(null);
-        panP = new PanelPlay(panBtn,p,panM);
+        panP = new PanelPlay(panBtn, p, panM, panCon);
         panP.setLayout(null);
 
 
@@ -53,12 +53,18 @@ public class JavPlay extends JFrame {
 
         //on place les objets
         panMain.setBounds(0,50,800,600);
+        // Panel Consigne
         panCon.setBounds(10,10,480,80);
+        // Panel Bouton
         panBtn.setBounds(10,100,480,100);
+        // Panel User
         panU.setBackground(Color.CYAN);
         panU.setBounds(10,210,480,380);
+        // Panel Score
         panS.setBounds(490,10,300,50);
+        // Panel Terrain - Map
         panM.setBounds(490,65,300,450);
+        // Panel Play - Bouton Play
         panP.setBounds(490,540,300,50);
         panBtn.setBackground(Color.CYAN);
 

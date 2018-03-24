@@ -10,6 +10,7 @@ public class PanelUser extends JPanel {
     LinkedList<Integer> commandes;
     String commandesAffiche;
 
+
     public PanelUser(PanelButton butts){
         commandes = butts.commande;
         uText = new JTextArea();

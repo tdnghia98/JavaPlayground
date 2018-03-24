@@ -9,13 +9,14 @@ public class PanelPlay extends JPanel {
     LinkedList<Integer> commandes;
     Personnage person;
     PanelTerrain terrePan;
+    PanelConsigne consigne;
 
-    public PanelPlay(PanelButton butts, Personnage p, PanelTerrain panTerre){
+    public PanelPlay(PanelButton butts, Personnage p, PanelTerrain panTerre, PanelConsigne cons) {
+        consigne = cons;
         person = p;
         terrePan = panTerre;
         // Recevoir le tableau de commande
         commandes = butts.commande;
-
         // Creer le bouton "Play"
         play = new JButton("Play");
         play.setBounds(120,5,60,40);
@@ -35,6 +36,7 @@ public class PanelPlay extends JPanel {
                     default: break;
                 }
                 terrePan.repaint();
+                consigne.repaint();
             }
         });
 

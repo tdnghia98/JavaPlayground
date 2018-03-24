@@ -10,7 +10,7 @@ public class Terrain {
         2: diamants
         3: caillou
         4: personnage
-         */
+        */
         int[][] m = {
             {4,0,0,0,0,0},
             {0,0,3,0,0,0},

@@ -1,7 +1,7 @@
 public class Personnage {
     int px; // Position x
     int py; // Position y
-    int cote;   // La direction
+    int dir;   // La direction
     Terrain t;
     int[][] map;
     int score = 0;
@@ -19,36 +19,41 @@ public class Personnage {
             }
         }
 
-        /* Cote du personnage
+        /* dir du personnage
         0: nord
-        2: sud
         1: est
+        2: sud
         3: ouest
          */
-        cote = (int) Math.random()*4;
+        dir = 0;
 
     }
 
     public void checkDevant (int i) {
-        switch (cote) {
-            case 0:
-                if (map[py-1][px] == i) {
-                    py--;
-                }
-            case 2:
-                if (map[py+1][px] == i) {
-                    py++;
-                }
-            case 1:
-                if (map[py][px+1] == i) {
-                    px++;
-                }
-            case 3:
-                if (map[py][px-1] == i) {
-                    px--;
-                }
-            default:
-                break;
+        int oldX = px;
+        int oldY = py;
+        if (!((py - 1 < 0 && dir == 0) || (px - 1 < 0 && dir == 3) || (px + 1 >= map[0].length && dir == 1) || (py + 1 >= map.length && dir == 2))) {
+            switch (dir) {
+                case 0:
+                    if (map[py - 1][px] == i) {
+                        py--;
+                    }
+                case 2:
+                    if (map[py + 1][px] == i) {
+                        py++;
+                    }
+                case 1:
+                    if (map[py][px + 1] == i) {
+                        px++;
+                    }
+                case 3:
+                    if (map[py][px - 1] == i) {
+                        px--;
+                    }
+                default:
+                    break;
+            }
+            map[oldY][oldX] = 0;
         }
         if (map[py][px] == 1) {
             t.fini = true;
@@ -63,24 +68,46 @@ public class Personnage {
     }
 
     public void gauche() {
-        cote--;
+        dir--;
         // Au cas ou on fait 0-1
-        if (cote == -1) {
-            cote = 3;
+        if (dir == -1) {
+            dir = 3;
         }
     }
 
     public void droite() {
-        cote++;
+        dir++;
         // Au cas ou on fait 3+1
-        if (cote == 4) {
-            cote = 0;
+        if (dir == 4) {
+            dir = 0;
         }
     }
 
     public void avanceAndCollect() {
         checkDevant(1);
         score ++;
+    }
+
+    public String getDir() {
+        String s;
+        switch (dir) {
+            case 0:
+                s = "nord";
+                break;
+            case 1:
+                s = "est";
+                break;
+            case 2:
+                s = "sud";
+                break;
+            case 3:
+                s = "ouest";
+                break;
+            default:
+                s = "unknown direction";
+                break;
+        }
+        return s;
     }
 }
 
