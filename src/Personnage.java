@@ -18,52 +18,65 @@ public class Personnage {
                 }
             }
         }
-
         /* dir du personnage
         0: nord
         1: est
         2: sud
         3: ouest
          */
-        dir = 0;
-
+        dir = 2;
     }
 
     public void checkDevant (int i) {
         int oldX = px;
         int oldY = py;
-        if (!((py - 1 < 0 && dir == 0) || (px - 1 < 0 && dir == 3) || (px + 1 >= map[0].length && dir == 1) || (py + 1 >= map.length && dir == 2))) {
+        System.out.println("Checking");
             switch (dir) {
                 case 0:
-                    if (map[py - 1][px] == i) {
-                        py--;
+                    if (py - 1 >= 0) {
+                        if (map[py - 1][px] == i) {
+                            py--;
+                        }
                     }
                 case 2:
-                    if (map[py + 1][px] == i) {
-                        py++;
+                    if (py + 1 < map[0].length) {
+                        if (map[py + 1][px] == i) {
+                            py++;
+                        }
                     }
                 case 1:
-                    if (map[py][px + 1] == i) {
-                        px++;
+                    if (px + 1 < map.length) {
+                        if (map[py][px + 1] == i) {
+                            px++;
+                        }
                     }
                 case 3:
-                    if (map[py][px - 1] == i) {
-                        px--;
+                    if (px - 1 >= 0) {
+                        if (map[py][px - 1] == i) {
+                            px--;
+                        }
                     }
                 default:
                     break;
             }
             map[oldY][oldX] = 0;
-        }
-        if (map[py][px] == 1) {
-            t.fini = true;
-        } else {
-            map[py][px] = 4;
+        switch (map[py][px]) {
+            case 1:
+                t.fini = true; // Case finale
+                break;
+            case 2:
+                break;  // Diamond
+            case 3:
+                px = oldX;
+                py = oldY;
+                map[py][px] = 4;
         }
 
     }
 
     public void avance() {
+        checkDevant(2);
+        checkDevant(1);
         checkDevant(0);
     }
 
@@ -84,7 +97,7 @@ public class Personnage {
     }
 
     public void avanceAndCollect() {
-        checkDevant(1);
+        checkDevant(2);
         score ++;
     }
 
