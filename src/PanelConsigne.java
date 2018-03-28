@@ -15,7 +15,8 @@ public class PanelConsigne extends JPanel{
         add(con_s);
     }
 
-    public void paint(Graphics g) {
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
         consigne.setText("But : collecter tous les diaments et atteindre la case rouge\nDirection: " + p.getDir());
     }
 }
