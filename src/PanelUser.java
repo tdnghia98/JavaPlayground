@@ -19,7 +19,8 @@ public class PanelUser extends JPanel {
         add(uScroll);
     }
 
-    public void paint(Graphics g) {
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
         uText.setText("");
         commandesAffiche = "";
         for (int i : commandes) {

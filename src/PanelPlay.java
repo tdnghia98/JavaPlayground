@@ -8,10 +8,15 @@ public class PanelPlay extends JPanel {
     private JButton play;
     LinkedList<Integer> commandes;
     Personnage person;
+    PanelUser panUser;
     PanelTerrain terrePan;
     PanelConsigne consigne;
+    PanelScore panScore;
+    JButton reset;
 
-    public PanelPlay(PanelButton butts, Personnage p, PanelTerrain panTerre, PanelConsigne cons) {
+    public PanelPlay(PanelButton butts, Personnage p, PanelTerrain panTerre, PanelConsigne cons, PanelScore ps, PanelUser pu) {
+        panScore = ps;
+        panUser = pu;
         consigne = cons;
         person = p;
         terrePan = panTerre;
@@ -19,8 +24,11 @@ public class PanelPlay extends JPanel {
         commandes = butts.commande;
         // Creer le bouton "Play"
         play = new JButton("Play");
-        play.setBounds(120,5,60,40);
+        play.setBounds(10, 5, 60, 40);
+        reset = new JButton("Reset");
+        reset.setBounds(220, 5, 60, 40);
         this.add(play);
+        add(reset);
         play.addActionListener((ActionEvent e) -> {
             System.out.println("Executing!");
             for (int i : commandes) {
@@ -38,9 +46,22 @@ public class PanelPlay extends JPanel {
                 }
                 terrePan.repaint();
                 consigne.repaint();
+                panScore.repaint();
             }
         });
-
+        reset.addActionListener((ActionEvent e) -> {
+            System.out.println("Resetting!");
+            // Reset
+            p.reset();
+            // Effacer les commandes
+            butts.commande.clear();
+            // Repaint les elements
+            consigne.repaint();
+            panUser.repaint();
+            terrePan.repaint();
+            consigne.repaint();
+            panScore.repaint();
+        });
     }
 
 

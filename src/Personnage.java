@@ -6,7 +6,8 @@ public class Personnage {
     int dir;   // La direction
     Terrain t;
     int[][] map;
-    int[][] map_org;
+    final int[][] map_org;
+    int[][] map_mod;
     int score = 0;
     int scoreMax;
 
@@ -16,15 +17,17 @@ public class Personnage {
         map = t.map;
         // Recopier le plan du terrain
         map_org = new int[map.length][map[0].length];
+        map_mod = new int[map.length][map[0].length];
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[0].length; j++) {
                 map_org[i][j] = map[i][j];
+                map_mod[i][j] = map[i][j];
             }
         }
         // Chercher la position de depart (case no 5)
-        for (int i = 0; i < map.length; i++) {
-            for(int j = 0; j< map[0].length; j++) {
-                if(map[i][j] == 5) {
+        for (int i = 0; i < map_org.length; i++) {
+            for (int j = 0; j < map_org[0].length; j++) {
+                if (map_org[i][j] == 4) {
                     px = j;
                     py = i;
                 }
@@ -77,10 +80,10 @@ public class Personnage {
                 break;
         }
         map[py][px] = 4;
-        if (map_org[oldY][oldX] == 0 || map_org[oldY][oldX] == 4) { // Si la case ancienne est juste l'herbe || OU la case de depart
+        if (map_mod[oldY][oldX] == 0 || map_mod[oldY][oldX] == 4) { // Si la case ancienne est juste l'herbe || OU la case de depart
             map[oldY][oldX] = 0;
         } else {
-            map[oldY][oldX] = map_org[oldY][oldX];
+            map[oldY][oldX] = map_mod[oldY][oldX];
         }
         switch (map[py][px]) {
             case 1:
@@ -122,9 +125,11 @@ public class Personnage {
     }
 
     public void collect() {
-        if (map[py][px] == 2) { // Verifier si c'est bien un diamant
+        System.out.println("Collect method");
+        if (map_mod[py][px] == 2) { // Verifier si c'est bien un diamant
+            System.out.println("It's a diamond!");
             score++;   // Augmenter la note
-            map[py][px] = 4;    // Changer la case en couleur du personnage
+            map_mod[py][px] = 0; // Diamant collecte
         }
 
     }
@@ -149,6 +154,23 @@ public class Personnage {
                 break;
         }
         return s;
+    }
+
+    public void reset() {
+        // Remettre la position et la direction aux celles de depart
+        px = t.pDx;
+        py = t.pDy;
+        dir = t.dirD;
+        // Reset le plan du terrain
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[0].length; j++) {
+                map[i][j] = map_org[i][j];
+            }
+        }
+        // Set player's score to 0
+        score = 0;
+        // Set fini to false
+        t.fini = false;
     }
 
     @Override

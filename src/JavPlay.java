@@ -40,7 +40,7 @@ public class JavPlay extends JFrame {
         panS.setLayout(null);
         panM = new PanelTerrain(terrain);
         panM.setLayout(null);
-        panP = new PanelPlay(panBtn, p, panM, panCon);
+        panP = new PanelPlay(panBtn, p, panM, panCon, panS, panU);
         panP.setLayout(null);
 
 
@@ -70,6 +70,7 @@ public class JavPlay extends JFrame {
 
         panS.setBackground(Color.green);
         panP.setBackground(Color.DARK_GRAY);
+        panU.repaint();
         /*cons = new JLabel("Consigne : atteindre la case rouge et collecter tous les diamants")
         avc.setBounds(10,5,40,20);
         coll.setBounds(10,75,40,20);

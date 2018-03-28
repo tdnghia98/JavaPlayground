@@ -51,6 +51,6 @@ public class PanelButton extends JPanel{
                 panUser.repaint();
             }
         });
-
     }
+
 }
