@@ -27,7 +27,8 @@ public class PanelPlay extends JPanel {
                 switch (i) {
                     case 1: p.avance();
                         break;
-                    case 2: p.avanceAndCollect();
+                    case 2:
+                        p.collect();
                         break;
                     case 3: p.gauche();
                         break;
