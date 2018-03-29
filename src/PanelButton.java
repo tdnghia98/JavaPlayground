@@ -17,11 +17,11 @@ public class PanelButton extends JPanel{
         coll = new JButton("collecter()"); //2
         turnr = new JButton("tournerDroite()"); //4
         turnl = new JButton("tournerGauche()"); //3
-        delete = new JButton("Back"); //5
+        delete = new JButton("back"); //5
         avc.setBounds(10, 5, 100, 20);
         coll.setBounds(10, 75, 100, 20);
-        turnr.setBounds(130, 5, 120, 20);
-        turnl.setBounds(130, 75, 120, 20);
+        turnr.setBounds(130, 5, 130, 20);
+        turnl.setBounds(130, 75, 130, 20);
         delete.setBounds(60, 40, 100, 20);
         this.add(avc);
         this.add(coll);
