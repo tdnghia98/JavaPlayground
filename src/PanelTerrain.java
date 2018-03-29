@@ -6,9 +6,11 @@ import java.awt.image.BufferedImage;
 public class PanelTerrain extends JPanel {
     Terrain t;
     private int[][] map;
+    Personnage person;
 
 
-    public PanelTerrain (Terrain terre) {
+    public PanelTerrain(Terrain terre, Personnage p) {
+        person = p;
         t = terre;
         map = terre.map;
         setLayout(null);
@@ -22,6 +24,12 @@ public class PanelTerrain extends JPanel {
             for (int j = 0; j < map[0].length; j++) {
 //                System.out.println("i = " + i + " , j = " +j);
                 // On dessine d'abord toutes les cases
+
+                Graphics2D g2 = (Graphics2D) g;
+                g2.setStroke(new BasicStroke(5));
+                g2.setColor(Color.black);
+                g2.drawRect(j * carre_cote, i * carre_cote, carre_cote, carre_cote);
+                g2.setColor(Color.green);
                 g.fillRect(j * carre_cote, i * carre_cote, carre_cote, carre_cote);
 //                System.out.println("Coordonne carre: y = " + i*carre_cote + ", x = " + j*carre_cote );
                 // On dessine ensuite des objets
@@ -29,7 +37,6 @@ public class PanelTerrain extends JPanel {
                     case 1: g.setColor(Color.RED); // La case finale
                         break;
                     case 2:
-
                         //g.setColor(Color.blue); // Le diamant
                         JLabel imageDiamant = new JLabel();
                         imageDiamant.setIcon(new ImageIcon("./graph/diamant.png"));
