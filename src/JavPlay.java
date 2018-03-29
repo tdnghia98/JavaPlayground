@@ -1,8 +1,11 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class JavPlay extends JFrame {
-    private PanelTerrain panM;    // Le terrain
+    Terrain terrain;
+    Personnage p;
+    private PanelTerrain panM;    // Le panel terrain
     private PanelConsigne panCon;
     private PanelUser panU;
     private PanelButton panBtn;
@@ -16,25 +19,30 @@ public class JavPlay extends JFrame {
     private JButton play;
     private JLabel cons;*/
 
-    public JavPlay(int [][] M){
+    public JavPlay(Terrain t, Personnage person){
         // Dessiner le plan du terrain
         super("Java Playground");
+        p = person;
+        terrain = t;
         this.setSize(800,650);
+        setLayout(null);
         //panel
         panMain = new JPanel();
         panMain.setLayout(null);
-        panCon = new PanelConsigne();
+        panCon = new PanelConsigne(p);
         panCon.setLayout(null);
-        panU = new PanelUser();
-        panU.setLayout(null);
         panBtn = new PanelButton();
         panBtn.setLayout(null);
-        panS = new PanelScore();
+        panU = new PanelUser(panBtn);
+        panU.setLayout(null);
+        panBtn.panUser = panU;  // Assign the userPanel to the ButtonPanel
+        panS = new PanelScore(p,terrain);
         panS.setLayout(null);
-        panP = new PanelPlay();
-        panP.setLayout(null);
-        panM = new PanelTerrain(M);
+        panM = new PanelTerrain(terrain);
         panM.setLayout(null);
+        panP = new PanelPlay(panBtn, p, panM, panCon, panS, panU);
+        panP.setLayout(null);
+
 
         /*
         avc = new JButton("Avancer");
@@ -45,12 +53,24 @@ public class JavPlay extends JFrame {
 
         //on place les objets
         panMain.setBounds(0,50,800,600);
+        // Panel Consigne
         panCon.setBounds(10,10,480,80);
-        panU.setBounds(10,210,480,380);
+        // Panel Bouton
         panBtn.setBounds(10,100,480,100);
+        // Panel User
+        panU.setBackground(Color.CYAN);
+        panU.setBounds(10,210,480,380);
+        // Panel Score
         panS.setBounds(490,10,300,50);
+        // Panel Terrain - Map
         panM.setBounds(490,65,300,450);
+        // Panel Play - Bouton Play
         panP.setBounds(490,540,300,50);
+        panBtn.setBackground(Color.CYAN);
+
+        panS.setBackground(Color.green);
+        panP.setBackground(Color.DARK_GRAY);
+        panU.repaint();
         /*cons = new JLabel("Consigne : atteindre la case rouge et collecter tous les diamants")
         avc.setBounds(10,5,40,20);
         coll.setBounds(10,75,40,20);
@@ -73,12 +93,13 @@ public class JavPlay extends JFrame {
 
         this.setContentPane(panMain);
         this.setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         /*avc.addActionListener(this);
         coll.addActionListener(this);
         turnr.addActionListener(this);
         turnl.addActionListener(this);
         play.addActionListener(this);*/
-
+        
     }
 
 

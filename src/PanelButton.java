@@ -1,18 +1,18 @@
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
-public class PanelButton extends JFrame{
+public class PanelButton extends JPanel{
     private JButton avc;
     private JButton coll;
     private JButton turnr;
     private JButton turnl;
     private JButton delete;
-    public ArrayList<Integer> commande;
+    public LinkedList<Integer> commande;
     PanelUser panUser;
 
-    public PanelButton(PanelUser uPan){
-        panUser = uPan;
-        commande = new ArrayList<Integer>();
+    public PanelButton(){
+        commande = new LinkedList<Integer>();
         avc = new JButton("Avancer"); //1
         coll = new JButton("Collecter"); //2
         turnr = new JButton("TournerGauche"); //3
@@ -46,9 +46,11 @@ public class PanelButton extends JFrame{
             panUser.repaint();
         });
         delete.addActionListener(e -> {
-            commande.remove(commande.size());
-            panUser.repaint();
+            if (commande.size() > 0) {
+                commande.remove(commande.size() - 1);
+                panUser.repaint();
+            }
         });
-
     }
+
 }
