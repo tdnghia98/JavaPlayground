@@ -35,6 +35,13 @@ public class PanelTerrain extends JPanel {
         add(imageNord);
         add(imageEst);
         add(imageOuest);
+        imageCaseFinale.setIcon(new ImageIcon("./graph/Case finale.png"));
+        imageDiamant.setIcon(new ImageIcon("./graph/diamant.png"));
+        imageCaillou.setIcon(new ImageIcon("./graph/Caillou 1.png"));
+        imageNord.setIcon(new ImageIcon("./graph/Bon homme nord.png"));
+        imageEst.setIcon(new ImageIcon("./graph/Bon homme est.png"));
+        imageSud.setIcon(new ImageIcon("./graph/Bon homme sud.png"));
+        imageOuest.setIcon(new ImageIcon("./graph/Bon homme ouest.png"));
         setLayout(null);
 
     }
@@ -57,35 +64,28 @@ public class PanelTerrain extends JPanel {
                 // On dessine ensuite des objets
                 switch (map[i][j]) {    // Taille d'un carre: 50x50 px
                     case 1:  // La case finale
-                        imageCaseFinale.setIcon(new ImageIcon("./graph/Case finale.png"));
                         imageCaseFinale.setBounds(j*50,i*50,50,50);
                         break;
                     case 2:
                         //g.setColor(Color.blue); // Le diamant
-                        imageDiamant.setIcon(new ImageIcon("./graph/diamant.png"));
                         imageDiamant.setBounds(j*50,i*50,50,50);
                         break;
                     case 3:  // Le caillou
-                        imageCaillou.setIcon(new ImageIcon("./graph/Caillou 1.png"));
                         imageCaillou.setBounds(j*50,i*50,50,50);
                         break;
                     case 4:  // Le personnage
                         switch (person.dir) {
                             case 0: //nord
-                                imageNord.setIcon(new ImageIcon("./graph/Bon homme nord.png"));
                                 imageNord.setBounds(j*50,i*50,50,50);
                                 break;
                             case 1: //est
-                                imageEst.setIcon(new ImageIcon("./graph/Bon homme est.png"));
                                 imageEst.setBounds(j*50,i*50,50,50);
                                 break;
                             case 2: //sud
-                                imageSud.setIcon(new ImageIcon("./graph/Bon homme sud.png"));
                                 imageSud.setBounds(j*50,i*50,50,50);
                                 add(imageSud);
                                 break;
                             case 3: //ouest
-                                imageOuest.setIcon(new ImageIcon("./graph/Bon homme ouest.png"));
                                 imageOuest.setBounds(j*50,i*50,50,50);
                                 break;
 
