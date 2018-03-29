@@ -24,9 +24,9 @@ public class PanelPlay extends JPanel {
         commandes = butts.commande;
         // Creer le bouton "Play"
         play = new JButton("Play");
-        play.setBounds(10, 5, 60, 40);
+        play.setBounds(10, 5, 100, 40);
         reset = new JButton("Reset");
-        reset.setBounds(220, 5, 60, 40);
+        reset.setBounds(180, 5, 100, 40);
         this.add(play);
         add(reset);
         play.addActionListener((ActionEvent e) -> {
