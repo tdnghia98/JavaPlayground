@@ -15,14 +15,14 @@ public class PanelButton extends JPanel{
         commande = new LinkedList<Integer>();
         avc = new JButton("Avancer"); //1
         coll = new JButton("Collecter"); //2
-        turnr = new JButton("TournerGauche"); //3
-        turnl = new JButton("TournerDroite"); //4
+        turnr = new JButton("TurnL"); //3
+        turnl = new JButton("TurnR"); //4
         delete = new JButton("Back"); //5
-        avc.setBounds(10,5,40,20);
-        coll.setBounds(10,75,40,20);
-        turnr.setBounds(430,5,40,20);
-        turnl.setBounds(430,75,40,20);
-        delete.setBounds(60,40,40,20);
+        avc.setBounds(10, 5, 60, 20);
+        coll.setBounds(10, 75, 60, 20);
+        turnr.setBounds(130, 5, 60, 20);
+        turnl.setBounds(130, 75, 60, 20);
+        delete.setBounds(60, 40, 60, 20);
         this.add(avc);
         this.add(coll);
         this.add(turnr);

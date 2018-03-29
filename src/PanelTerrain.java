@@ -1,9 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+
 
 public class PanelTerrain extends JPanel {
     Terrain t;
     private int[][] map;
+
 
     public PanelTerrain (Terrain terre) {
         t = terre;
