@@ -11,10 +11,10 @@ public class PanelTerrain extends JPanel {
     public PanelTerrain (Terrain terre) {
         t = terre;
         map = terre.map;
-
+        setLayout(null);
     }
 
-    public void paint (Graphics g) {
+    public void paintComponent (Graphics g) {
         // Dessiner le plan du terrain
         int carre_cote = 50;    // La taille d'une case
         g.setColor(Color.green);
@@ -32,9 +32,9 @@ public class PanelTerrain extends JPanel {
 
                         //g.setColor(Color.blue); // Le diamant
                         JLabel imageDiamant = new JLabel();
-                        imageDiamant.setIcon(new ImageIcon("diamant.png"));
-                        imageDiamant.setSize(50, 50);
-                        imageDiamant.setLocation(j * 50, i * 50);
+                        imageDiamant.setIcon(new ImageIcon("./src/diamant.png"));
+                        imageDiamant.setBounds(j*50,i*50,50,50);
+                        add(imageDiamant);
                         break;
                     case 3: g.setColor(Color.GRAY); // Le caillou
                         break;
