@@ -29,6 +29,7 @@ public class PanelTerrain extends JPanel {
                     case 1: g.setColor(Color.RED); // La case finale
                         break;
                     case 2:
+
                         //g.setColor(Color.blue); // Le diamant
                         JLabel imageDiamant = new JLabel();
                         imageDiamant.setIcon(new ImageIcon("diamant.png"));
