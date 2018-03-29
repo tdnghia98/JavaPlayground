@@ -56,10 +56,10 @@ public class JavPlay extends JFrame {
         // Panel Consigne
         panCon.setBounds(10,10,480,80);
         // Panel Bouton
-        panBtn.setBounds(10,100,480,100);
+        panBtn.setBounds(10, 100, 420, 100);
         // Panel User
         panU.setBackground(Color.CYAN);
-        panU.setBounds(10,210,480,380);
+        panU.setBounds(10, 210, 420, 380);
         // Panel Score
         panS.setBounds(490,10,300,50);
         // Panel Terrain - Map
