@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Arrays;
 
 public class Personnage {
@@ -10,6 +11,7 @@ public class Personnage {
     int[][] map_mod;
     int score = 0;
     int scoreMax;
+
 
     public Personnage (Terrain terre){
         t = terre;
@@ -40,6 +42,7 @@ public class Personnage {
         3: ouest
          */
         dir = 2;
+
     }
 
     public void checkDevant() {
@@ -47,7 +50,8 @@ public class Personnage {
         int oldY = py;
         int oldCase = map[py][px];
         System.out.println("Checking");
-        System.out.println("Actual position: x = " + px + ". py = " + py + " , dir = " + dir);
+        System.out.println("Old position: px = " + px + ". py = " + py + " , dir = " + dir);
+
         switch (dir) {
             case 0: //nord
                 if (py - 1 >= 0) {
@@ -85,10 +89,11 @@ public class Personnage {
         } else {
             map[oldY][oldX] = map_mod[oldY][oldX];
         }
-        switch (map[py][px]) {
+        switch (map_mod[py][px]) {
             case 1:
                 if (score == scoreMax) {
                     t.fini = true; // Case finale
+                    System.exit(0);
                 } else {
                     System.out.println("Pas fini car pas assez de diamants");
                 }
@@ -101,6 +106,10 @@ public class Personnage {
                 map[py][px] = 4;    // Colorer la case en couleur du personnage
                 break;
         }
+        System.out.println("Checking");
+        System.out.println("New position: px = " + px + ". py = " + py + " , dir = " + dir);
+        System.out.println("gameover : " +t.fini);
+        System.out.println("type de case :"+map_mod[px][py]);
 
     }
 

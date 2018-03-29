@@ -12,12 +12,7 @@ public class JavPlay extends JFrame {
     private PanelScore panS;
     private PanelPlay panP;
     private JPanel panMain;
-    /*private JButton avc;
-    private JButton coll;
-    private JButton turnr;
-    private JButton turnl;
-    private JButton play;
-    private JLabel cons;*/
+
 
     public JavPlay(Terrain t, Personnage person){
         // Dessiner le plan du terrain
@@ -44,12 +39,6 @@ public class JavPlay extends JFrame {
         panP.setLayout(null);
 
 
-        /*
-        avc = new JButton("Avancer");
-        coll = new JButton("Collecter");
-        turnr = new JButton("TournerGauche");
-        turnl = new JButton("TournerDroite");
-        play = new JButton("Play");*/
 
         //on place les objets
         panMain.setBounds(0,50,800,600);
@@ -71,19 +60,7 @@ public class JavPlay extends JFrame {
         panS.setBackground(Color.green);
         panP.setBackground(Color.DARK_GRAY);
         panU.repaint();
-        /*cons = new JLabel("Consigne : atteindre la case rouge et collecter tous les diamants")
-        avc.setBounds(10,5,40,20);
-        coll.setBounds(10,75,40,20);
-        turnr.setBounds(430,5,40,20);
-        turnl.setBounds(430,75,40,20);
-        play.setBounds(120,5,60,40);
 
-        panCon.add(cons);
-        panP.add(play);
-        panBtn.add(coll);
-        panBtn.add(avc);
-        panBtn.add(turnl);
-        panBtn.add(turnr);*/
         panMain.add(panBtn);
         panMain.add(panCon);
         panMain.add(panU);
@@ -94,12 +71,9 @@ public class JavPlay extends JFrame {
         this.setContentPane(panMain);
         this.setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        /*avc.addActionListener(this);
-        coll.addActionListener(this);
-        turnr.addActionListener(this);
-        turnl.addActionListener(this);
-        play.addActionListener(this);*/
-        
+
+
+
     }
 
 
