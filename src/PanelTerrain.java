@@ -32,7 +32,7 @@ public class PanelTerrain extends JPanel {
 
                         //g.setColor(Color.blue); // Le diamant
                         JLabel imageDiamant = new JLabel();
-                        imageDiamant.setIcon(new ImageIcon("./src/diamant.png"));
+                        imageDiamant.setIcon(new ImageIcon("./graph/diamant.png"));
                         imageDiamant.setBounds(j*50,i*50,50,50);
                         add(imageDiamant);
                         break;
