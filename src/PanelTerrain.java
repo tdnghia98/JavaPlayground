@@ -36,6 +36,7 @@ public class PanelTerrain extends JPanel {
         add(imageEst);
         add(imageOuest);
         setLayout(null);
+
     }
 
     public void paintComponent (Graphics g) {
