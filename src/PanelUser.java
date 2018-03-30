@@ -38,12 +38,12 @@ public class PanelUser extends JPanel {
                 imageBNord.setBounds(150, 150, 150, 150);
                 break;
             case 1: //est
-                imageBSud.setIcon(new ImageIcon("./graph/BOUSSOLESUD.png"));
-                imageBSud.setBounds(150, 150, 150, 150);
-                break;
-            case 2: //sud
                 imageBEst.setIcon(new ImageIcon("./graph/BOUSSOLEEST.png"));
                 imageBEst.setBounds(150, 150, 150, 150);
+                break;
+            case 2: //sud
+                imageBSud.setIcon(new ImageIcon("./graph/BOUSSOLESUD.png"));
+                imageBSud.setBounds(150, 150, 150, 150);
                 break;
             case 3: //ouest
                 imageBOuest.setIcon(new ImageIcon("./graph/BOUSSOLEOUEST.png"));
