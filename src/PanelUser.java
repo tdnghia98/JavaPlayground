@@ -9,7 +9,11 @@ public class PanelUser extends JPanel {
     JScrollPane uScroll;
     LinkedList<Integer> commandes;
     String commandesAffiche;
-
+    Personnage person;
+    JLabel imageBNord;
+    JLabel imageBEst;
+    JLabel imageBSud;
+    JLabel imageBOuest;
 
     public PanelUser(PanelButton butts){
         commandes = butts.commande;
@@ -28,18 +32,23 @@ public class PanelUser extends JPanel {
         add(imageBOuest);
         setLayout(null);
 
-        if (p.getDir() == nord) { // boussole nord
-            imageBNORD.setIcon(new ImageIcon("./graph/BOUSSOLENORD.png"));
-            imageBNORD.setBounds();
-        } else if (p.getDir() == sud) { // boussole sud
-            imageBSUD.setIcon(new ImageIcon("./graph/BOUSSOLESUD.png"));
-            imageBSUD.setBounds();
-        } else if (p.getDir() == est) { // boussole est
-            imageBEST.setIcon(new ImageIcon("./graph/BOUSSOLEEST.png"));
-            imageBEST.setBounds();
-        } else if (p.getDir() == ouest) { // boussole ouest
-            imageBOUEST.setIcon(new ImageIcon("./graph/BOUSSOLEOUEST.png"));
-            imageBOUEST.setBounds();
+        switch (person.dir) {
+            case 0: //nord
+                imageBNord.setIcon(new ImageIcon("./graph/BOUSSOLENORD.png"));
+                imageBNord.setBounds(150, 150, 150, 150);
+                break;
+            case 1: //est
+                imageBSud.setIcon(new ImageIcon("./graph/BOUSSOLESUD.png"));
+                imageBSud.setBounds(150, 150, 150, 150);
+                break;
+            case 2: //sud
+                imageBEst.setIcon(new ImageIcon("./graph/BOUSSOLEEST.png"));
+                imageBEst.setBounds(150, 150, 150, 150);
+                break;
+            case 3: //ouest
+                imageBOuest.setIcon(new ImageIcon("./graph/BOUSSOLEOUEST.png"));
+                imageBOuest.setBounds(150, 150, 150, 150);
+                break;
         }
     }
 
