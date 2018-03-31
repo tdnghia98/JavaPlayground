@@ -24,9 +24,9 @@ public class Personnage {
                 if (map[i][j] == 4) {
                     map_mod[i][j] = 0;
                 } else {
-                    map_org[i][j] = map[i][j];
                     map_mod[i][j] = map[i][j];
                 }
+                map_org[i][j] = map[i][j];
             }
         }
         // Chercher la position de depart (case no 4)
@@ -160,7 +160,6 @@ public class Personnage {
             System.out.println("type de case :" + map_mod[py][px]);
             score++;   // Augmenter la note
             map_mod[py][px] = 0; // Diamant collecte
-            map[py][px] = 0;
         }
     }
 
