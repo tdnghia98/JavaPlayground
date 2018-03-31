@@ -12,6 +12,7 @@ public class PanelButton extends JPanel{
     PanelUser panUser;
 
     public PanelButton(){
+
         commande = new LinkedList<Integer>();
         avc = new JButton("avance()"); //1
         coll = new JButton("collecter()"); //2

@@ -28,7 +28,7 @@ public class JavPlay extends JFrame {
         panCon.setLayout(null);
         panBtn = new PanelButton();
         panBtn.setLayout(null);
-        panU = new PanelUser(panBtn);
+        panU = new PanelUser(panBtn, p);
         panU.setLayout(null);
         panBtn.panUser = panU;  // Assign the userPanel to the ButtonPanel
         panS = new PanelScore(p,terrain);

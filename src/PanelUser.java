@@ -15,12 +15,15 @@ public class PanelUser extends JPanel {
     JLabel imageBSud;
     JLabel imageBOuest;
 
-    public PanelUser(PanelButton butts){
+    public PanelUser(PanelButton butts, Personnage p) {
+
+        person = p;
         commandes = butts.commande;
         uText = new JTextArea();
         uScroll = new JScrollPane(uText);
         uScroll.setBounds(5,5,200,300);
         add(uScroll);
+
 
         imageBNord = new JLabel();
         imageBEst = new JLabel();
@@ -48,6 +51,9 @@ public class PanelUser extends JPanel {
             case 3: //ouest
                 imageBOuest.setIcon(new ImageIcon("./graph/BOUSSOLEOUEST.png"));
                 imageBOuest.setBounds(150, 150, 150, 150);
+                break;
+
+            default:
                 break;
         }
     }
