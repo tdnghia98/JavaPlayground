@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.util.Arrays;
 
 public class Personnage {
@@ -51,6 +52,7 @@ public class Personnage {
         int oldCase = map[py][px];
         System.out.println("Checking");
         System.out.println("Old position: px = " + px + ". py = " + py + " , dir = " + dir);
+        int game_over_dialogue;
 
         switch (dir) {
             case 0: //nord
@@ -58,6 +60,9 @@ public class Personnage {
                     if (map[py - 1][px] != 3) {
                         py--;
                     }
+                } else {
+                    System.out.println("Out of boundaries !");
+                    JOptionPane.showMessageDialog(null, "You are out of boundaries !", "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 break;
             case 2: //sud
@@ -65,6 +70,9 @@ public class Personnage {
                     if (map[py + 1][px] != 3) {
                         py++;
                     }
+                } else {
+                    System.out.println("Out of boundaries !");
+                    JOptionPane.showMessageDialog(null, "You are out of boundaries !", "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 break;
             case 1: //est
@@ -72,6 +80,9 @@ public class Personnage {
                     if (map[py][px + 1] != 3) {
                         px++;
                     }
+                } else {
+                    System.out.println("Out of boundaries !");
+                    JOptionPane.showMessageDialog(null, "You are out of boundaries !", "Error", JOptionPane.ERROR_MESSAGE);
                 }
                 break;
             case 3: //ouest
@@ -79,6 +90,9 @@ public class Personnage {
                     if (map[py][px - 1] != 3) {
                         px--;
                     }
+                } else {
+                    System.out.println("Out of boundaries !");
+                    JOptionPane.showMessageDialog(null, "You are out of boundaries !", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             default:
                 break;
@@ -92,8 +106,13 @@ public class Personnage {
         switch (map_mod[py][px]) {
             case 1:
                 if (score == scoreMax) {
-                    t.fini = true; // Case finale
-                    System.exit(0);
+                    t.fini = true; // Si on atteint la case finale
+
+                    game_over_dialogue = JOptionPane.showConfirmDialog(null, "Congratulations ! You have finished the game, do you want to quit ?", "GAME OVER", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    if (game_over_dialogue == JOptionPane.YES_OPTION) {
+                        System.exit(0);
+                    }
+
                 } else {
                     System.out.println("Pas fini car pas assez de diamants");
                 }
@@ -110,6 +129,7 @@ public class Personnage {
         System.out.println("New position: px = " + px + ". py = " + py + " , dir = " + dir);
         System.out.println("gameover : " +t.fini);
         System.out.println("type de case :"+map_mod[px][py]);
+        System.out.println();
 
     }
 
