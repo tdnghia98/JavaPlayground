@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 import java.util.Arrays;
 
 public class Personnage {
@@ -13,7 +12,6 @@ public class Personnage {
     int score = 0;
     int scoreMax;
 
-
     public Personnage (Terrain terre){
         t = terre;
         scoreMax = t.scoreMax;
@@ -23,11 +21,15 @@ public class Personnage {
         map_mod = new int[map.length][map[0].length];
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[0].length; j++) {
-                map_org[i][j] = map[i][j];
-                map_mod[i][j] = map[i][j];
+                if (map[i][j] == 4) {
+                    map_mod[i][j] = 0;
+                } else {
+                    map_org[i][j] = map[i][j];
+                    map_mod[i][j] = map[i][j];
+                }
             }
         }
-        // Chercher la position de depart (case no 5)
+        // Chercher la position de depart (case no 4)
         for (int i = 0; i < map_org.length; i++) {
             for (int j = 0; j < map_org[0].length; j++) {
                 if (map_org[i][j] == 4) {
@@ -43,7 +45,6 @@ public class Personnage {
         3: ouest
          */
         dir = 2;
-
     }
 
     public void checkDevant() {
@@ -51,7 +52,7 @@ public class Personnage {
         int oldY = py;
         int oldCase = map[py][px];
         System.out.println("Checking");
-        System.out.println("Old position: px = " + px + ". py = " + py + " , dir = " + dir);
+        System.out.println("old position: x = " + px + ". py = " + py + " , dir = " + dir + " , map = " + map_mod[py][px]);
         int game_over_dialogue;
 
         switch (dir) {
@@ -98,7 +99,7 @@ public class Personnage {
                 break;
         }
         map[py][px] = 4;
-        if (map_mod[oldY][oldX] == 0 || map_mod[oldY][oldX] == 4) { // Si la case ancienne est juste l'herbe || OU la case de depart
+        if (map_mod[oldY][oldX] == 0) { // Si la case ancienne est juste l'herbe || OU la case de depart
             map[oldY][oldX] = 0;
         } else {
             map[oldY][oldX] = map_mod[oldY][oldX];
@@ -107,7 +108,6 @@ public class Personnage {
             case 1:
                 if (score == scoreMax) {
                     t.fini = true; // Si on atteint la case finale
-
                     game_over_dialogue = JOptionPane.showConfirmDialog(null, "Congratulations ! You have finished the game, do you want to quit ?", "GAME OVER", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if (game_over_dialogue == JOptionPane.YES_OPTION) {
                         System.exit(0);
@@ -128,7 +128,7 @@ public class Personnage {
         System.out.println("Checking");
         System.out.println("New position: px = " + px + ". py = " + py + " , dir = " + dir);
         System.out.println("gameover : " +t.fini);
-        System.out.println("type de case :"+map_mod[px][py]);
+        System.out.println("type de case :" + map_mod[py][px]);
         System.out.println();
 
     }
@@ -156,11 +156,12 @@ public class Personnage {
     public void collect() {
         System.out.println("Collect method");
         if (map_mod[py][px] == 2) { // Verifier si c'est bien un diamant
-            System.out.println("It's a diamond!");
+            System.out.println("It's a diamond! Collecting...");
+            System.out.println("type de case :" + map_mod[py][px]);
             score++;   // Augmenter la note
             map_mod[py][px] = 0; // Diamant collecte
+            map[py][px] = 0;
         }
-
     }
 
     public String getDir() {
@@ -194,6 +195,11 @@ public class Personnage {
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[0].length; j++) {
                 map[i][j] = map_org[i][j];
+                if (map[i][j] == 4) {
+                    map_mod[i][j] = 0;
+                } else {
+                    map_mod[i][j] = map_org[i][j];
+                }
             }
         }
         // Set player's score to 0

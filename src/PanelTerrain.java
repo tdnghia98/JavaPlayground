@@ -6,6 +6,7 @@ import java.awt.image.BufferedImage;
 public class PanelTerrain extends JPanel {
     Terrain t;
     private int[][] map;
+    int[][] map_mod;
     Personnage person;
     JLabel imageCaseFinale;
     JLabel imageDiamant;
@@ -21,6 +22,7 @@ public class PanelTerrain extends JPanel {
         person = p;
         t = terre;
         map = terre.map;
+        map_mod = p.map_mod;
         // Creer et ajouter tous les labels et images
         imageCaseFinale = new JLabel();
         imageDiamant = new JLabel();
@@ -29,12 +31,7 @@ public class PanelTerrain extends JPanel {
         imageEst = new JLabel();
         imageSud = new JLabel();
         imageOuest = new JLabel();
-        add(imageCaseFinale);
-        add(imageDiamant);
-        add(imageCaillou);
-        add(imageNord);
-        add(imageEst);
-        add(imageOuest);
+
         imageCaseFinale.setIcon(new ImageIcon("./graph/Case finale.png"));
         imageDiamant.setIcon(new ImageIcon("./graph/diamant.png"));
         imageCaillou.setIcon(new ImageIcon("./graph/Caillou 1.png"));
@@ -47,8 +44,17 @@ public class PanelTerrain extends JPanel {
     }
 
     public void paintComponent (Graphics g) {
+        remove(imageCaseFinale);
+        remove(imageDiamant);
+        remove(imageCaillou);
+        remove(imageDiamant);
+        remove(imageEst);
+        remove(imageOuest);
+        remove(imageNord);
+        remove(imageSud);
         // Dessiner le plan du terrain
         int carre_cote = 50;    // La taille d'une case
+        int[][] map_temp = new int[map.length][map[0].length];
         for (int i  = 0; i < map.length; i++) {
             for (int j = 0; j < map[0].length; j++) {
 //                System.out.println("i = " + i + " , j = " +j);
@@ -62,39 +68,53 @@ public class PanelTerrain extends JPanel {
                 g.fillRect(j * carre_cote, i * carre_cote, carre_cote, carre_cote);
 //                System.out.println("Coordonne carre: y = " + i*carre_cote + ", x = " + j*carre_cote );
                 // On dessine ensuite des objets
-                switch (map[i][j]) {    // Taille d'un carre: 50x50 px
+                if (map[i][j] == 4 && map_mod[i][j] == 0) {
+                    map_temp = map;
+                    System.out.println("Drawing with map");
+                } else {
+                    map_temp = map_mod;
+                    System.out.println("Drawing with map_mod");
+                }
+                switch (map_temp[i][j]) {    // Taille d'un carre: 50x50 px
                     case 1:  // La case finale
-                        imageCaseFinale.setBounds(j*50,i*50,50,50);
+                        imageCaseFinale.setBounds(j * 50, i * 50, 50, 50);
+                        add(imageCaseFinale);
                         break;
                     case 2:
                         //g.setColor(Color.blue); // Le diamant
-                        imageDiamant.setBounds(j*50,i*50,50,50);
+                        imageDiamant.setBounds(j * 50, i * 50, 50, 50);
+                        add(imageDiamant);
                         break;
                     case 3:  // Le caillou
-                        imageCaillou.setBounds(j*50,i*50,50,50);
+                        imageCaillou.setBounds(j * 50, i * 50, 50, 50);
+                        add(imageCaillou);
                         break;
                     case 4:  // Le personnage
                         switch (person.dir) {
                             case 0: //nord
-                                imageNord.setBounds(j*50,i*50,50,50);
+                                imageNord.setBounds(j * 50, i * 50, 50, 50);
+                                add(imageNord);
                                 break;
                             case 1: //est
-                                imageEst.setBounds(j*50,i*50,50,50);
+                                imageEst.setBounds(j * 50, i * 50, 50, 50);
+                                add(imageEst);
                                 break;
                             case 2: //sud
-                                imageSud.setBounds(j*50,i*50,50,50);
+                                imageSud.setBounds(j * 50, i * 50, 50, 50);
                                 add(imageSud);
                                 break;
                             case 3: //ouest
-                                imageOuest.setBounds(j*50,i*50,50,50);
+                                imageOuest.setBounds(j * 50, i * 50, 50, 50);
+                                add(imageOuest);
                                 break;
-
+                            default:
+                                break;
                         }
-                        break;
                     default:
                         break;
                 }
-                g.fillRect(j * carre_cote + 5, i * carre_cote + 5, 40, 40);
+
+
 //                System.out.println("map: " + map[i][j] + ", Color: " + g.getColor());
                 g.setColor(Color.green);    // Remettre le vert pour les cases
             }
