@@ -69,6 +69,7 @@ public class PanelTerrain extends JPanel {
 //                System.out.println("Coordonne carre: y = " + i*carre_cote + ", x = " + j*carre_cote );
                 // On dessine ensuite des objets
                 if (map[i][j] == 4 && map_mod[i][j] == 0) {
+
                     map_temp = map;
                     System.out.println("Drawing with map");
                 } else {
