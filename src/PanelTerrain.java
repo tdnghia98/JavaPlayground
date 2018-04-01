@@ -70,10 +70,10 @@ public class PanelTerrain extends JPanel {
                 // On dessine ensuite des objets
                 if (map[i][j] == 4 && map_mod[i][j] == 0) {
                     map_temp = map;
-                    System.out.println("Drawing with map");
+                    //System.out.println("Drawing with map");
                 } else {
                     map_temp = map_mod;
-                    System.out.println("Drawing with map_mod");
+                    //System.out.println("Drawing with map_mod");
                 }
                 switch (map_temp[i][j]) {    // Taille d'un carre: 50x50 px
                     case 1:  // La case finale

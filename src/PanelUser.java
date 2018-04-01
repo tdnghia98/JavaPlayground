@@ -14,9 +14,11 @@ public class PanelUser extends JPanel {
     JLabel imageBEst;
     JLabel imageBSud;
     JLabel imageBOuest;
+    private int sens;
 
     public PanelUser(PanelButton butts, Personnage p) {
 
+        sens = 2;
         person = p;
         commandes = butts.commande;
         uText = new JTextArea();
@@ -29,9 +31,15 @@ public class PanelUser extends JPanel {
         imageBEst = new JLabel();
         imageBSud = new JLabel();
         imageBOuest = new JLabel();
+        imageBNord.setIcon(new ImageIcon("./graph/BOUSSOLENORD.png"));
+        imageBEst.setIcon(new ImageIcon("./graph/BOUSSOLEEST.png"));
+        imageBSud.setIcon(new ImageIcon("./graph/BOUSSOLESUD.png"));
+        imageBOuest.setIcon(new ImageIcon("./graph/BOUSSOLEOUEST.png"));
+        imageBSud.setBounds(250, 50, 150, 150);
+        add(imageBSud);
         setLayout(null);
 
-        switch (person.dir) {
+        /*switch (person.dir) {
             case 0: //nord
                 imageBNord.setIcon(new ImageIcon("./graph/BOUSSOLENORD.png"));
                 imageBNord.setBounds(250, 50, 150, 150);
@@ -55,13 +63,18 @@ public class PanelUser extends JPanel {
 
             default:
                 break;
-        }
+        }*/
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        /*remove(imageBNord);
+        remove(imageBEst);
+        remove(imageBOuest);
+        remove(imageBSud);*/
         uText.setText("");
         commandesAffiche = "";
+
         for (int i : commandes) {
             switch (i) {
                 case 1: commandesAffiche += "avance();\n";
@@ -69,6 +82,29 @@ public class PanelUser extends JPanel {
                 case 2: commandesAffiche += "collecter();\n";
                     break;
                 case 3: commandesAffiche += "tournerGauche();\n";
+                    /*sens--;
+                    if (sens ==-1){
+                        sens =3;
+                    }
+                    System.out.println("boussole : "+sens);*/
+
+                    /*switch (sens){
+                        case 0 : //nord
+                            imageBNord.setBounds(250, 50, 150, 150);
+                            add(imageBNord);
+                            break;
+                        case 1: //est
+                            imageBEst.setBounds(250, 50, 150, 150);
+                            add(imageBEst);
+                            break;
+                        case 2: //sud
+                            imageBSud.setBounds(250, 50, 150, 150);
+                            add(imageBSud);
+                            break;
+                        case 3://ouest
+                            imageBOuest.setBounds(250, 50, 150, 150);
+                            add(imageBOuest);*/
+
                     break;
                 case 4: commandesAffiche += "tournerDroite();\n";
                     break;
@@ -76,5 +112,85 @@ public class PanelUser extends JPanel {
             }
         }
         uText.setText(commandesAffiche);
+
+        //la boussole
+        if (commandes.peekLast() != null) {
+            //System.out.println(commandes.peekLast());
+            if (commandes.peekLast() == 3) {
+                sens--;
+                if (sens == -1) {
+                    sens = 3;
+                }
+
+                switch (sens) {
+                    case 0: //nord
+                        imageBNord.setBounds(250, 50, 150, 150);
+                        add(imageBNord);
+                        remove(imageBSud);
+                        remove(imageBEst);
+                        remove(imageBOuest);
+                        break;
+                    case 1: //est
+                        imageBEst.setBounds(250, 50, 150, 150);
+                        add(imageBEst);
+                        remove(imageBSud);
+                        remove(imageBNord);
+                        remove(imageBOuest);
+                        break;
+                    case 2: //sud
+                        imageBSud.setBounds(250, 50, 150, 150);
+                        add(imageBSud);
+                        remove(imageBEst);
+                        remove(imageBNord);
+                        remove(imageBOuest);
+                        break;
+                    case 3://ouest
+                        imageBOuest.setBounds(250, 50, 150, 150);
+                        add(imageBOuest);
+                        remove(imageBSud);
+                        remove(imageBNord);
+                        remove(imageBEst);
+                        break;
+
+                }
+            }
+            if (commandes.peekLast() == 4) {
+                sens++;
+                if (sens == 4) {
+                    sens = 0;
+                }
+
+                switch (sens) {
+                    case 0: //nord
+                        imageBNord.setBounds(250, 50, 150, 150);
+                        add(imageBNord);
+                        remove(imageBSud);
+                        remove(imageBEst);
+                        remove(imageBOuest);
+                        break;
+                    case 1: //est
+                        imageBEst.setBounds(250, 50, 150, 150);
+                        add(imageBEst);
+                        remove(imageBSud);
+                        remove(imageBNord);
+                        remove(imageBOuest);
+                        break;
+                    case 2: //sud
+                        imageBSud.setBounds(250, 50, 150, 150);
+                        add(imageBSud);
+                        remove(imageBEst);
+                        remove(imageBNord);
+                        remove(imageBOuest);
+                        break;
+                    case 3://ouest
+                        imageBOuest.setBounds(250, 50, 150, 150);
+                        add(imageBOuest);
+                        remove(imageBSud);
+                        remove(imageBNord);
+                        remove(imageBEst);
+                        break;
+                }
+            }
+        }
     }
 }
