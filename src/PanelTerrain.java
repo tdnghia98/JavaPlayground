@@ -46,8 +46,8 @@ public class PanelTerrain extends JPanel {
     public void paintComponent (Graphics g) {
         remove(imageCaseFinale);
         remove(imageDiamant);
-        remove(imageCaillou);
-        remove(imageDiamant);
+
+
         remove(imageEst);
         remove(imageOuest);
         remove(imageNord);

@@ -15,6 +15,8 @@ public class PanelUser extends JPanel {
     JLabel imageBSud;
     JLabel imageBOuest;
     private int sens;
+    PanelButton PB;
+
 
     public PanelUser(PanelButton butts, Personnage p) {
 
@@ -25,6 +27,7 @@ public class PanelUser extends JPanel {
         uScroll = new JScrollPane(uText);
         uScroll.setBounds(5,5,200,300);
         add(uScroll);
+        PB = butts;
 
 
         imageBNord = new JLabel();
@@ -39,31 +42,7 @@ public class PanelUser extends JPanel {
         add(imageBSud);
         setLayout(null);
 
-        /*switch (person.dir) {
-            case 0: //nord
-                imageBNord.setIcon(new ImageIcon("./graph/BOUSSOLENORD.png"));
-                imageBNord.setBounds(250, 50, 150, 150);
-                add(imageBNord);
-                break;
-            case 1: //est
-                imageBEst.setIcon(new ImageIcon("./graph/BOUSSOLEEST.png"));
-                imageBEst.setBounds(250, 50, 150, 150);
-                add(imageBEst);
-                break;
-            case 2: //sud
-                imageBSud.setIcon(new ImageIcon("./graph/BOUSSOLESUD.png"));
-                imageBSud.setBounds(250, 50, 150, 150);
-                add(imageBSud);
-                break;
-            case 3: //ouest
-                imageBOuest.setIcon(new ImageIcon("./graph/BOUSSOLEOUEST.png"));
-                imageBOuest.setBounds(250, 50, 150, 150);
-                add(imageBOuest);
-                break;
 
-            default:
-                break;
-        }*/
     }
 
     public void paintComponent(Graphics g) {
@@ -114,83 +93,78 @@ public class PanelUser extends JPanel {
         uText.setText(commandesAffiche);
 
         //la boussole
+        if (commandes.peekLast() == null && PB.old_size == PB.new_size) {
+            imageBSud.setBounds(250, 50, 150, 150);
+            add(imageBSud);
+            remove(imageBEst);
+            remove(imageBNord);
+            remove(imageBOuest);
+        }
         if (commandes.peekLast() != null) {
             //System.out.println(commandes.peekLast());
-            if (commandes.peekLast() == 3) {
+            if (commandes.peekLast() == 3 && PB.new_size > PB.old_size) {
                 sens--;
                 if (sens == -1) {
                     sens = 3;
                 }
 
-                switch (sens) {
-                    case 0: //nord
-                        imageBNord.setBounds(250, 50, 150, 150);
-                        add(imageBNord);
-                        remove(imageBSud);
-                        remove(imageBEst);
-                        remove(imageBOuest);
-                        break;
-                    case 1: //est
-                        imageBEst.setBounds(250, 50, 150, 150);
-                        add(imageBEst);
-                        remove(imageBSud);
-                        remove(imageBNord);
-                        remove(imageBOuest);
-                        break;
-                    case 2: //sud
-                        imageBSud.setBounds(250, 50, 150, 150);
-                        add(imageBSud);
-                        remove(imageBEst);
-                        remove(imageBNord);
-                        remove(imageBOuest);
-                        break;
-                    case 3://ouest
-                        imageBOuest.setBounds(250, 50, 150, 150);
-                        add(imageBOuest);
-                        remove(imageBSud);
-                        remove(imageBNord);
-                        remove(imageBEst);
-                        break;
 
-                }
             }
-            if (commandes.peekLast() == 4) {
+            if (commandes.peekLast() == 4 && PB.new_size > PB.old_size) {
                 sens++;
                 if (sens == 4) {
                     sens = 0;
                 }
-
-                switch (sens) {
-                    case 0: //nord
-                        imageBNord.setBounds(250, 50, 150, 150);
-                        add(imageBNord);
-                        remove(imageBSud);
-                        remove(imageBEst);
-                        remove(imageBOuest);
-                        break;
-                    case 1: //est
-                        imageBEst.setBounds(250, 50, 150, 150);
-                        add(imageBEst);
-                        remove(imageBSud);
-                        remove(imageBNord);
-                        remove(imageBOuest);
-                        break;
-                    case 2: //sud
-                        imageBSud.setBounds(250, 50, 150, 150);
-                        add(imageBSud);
-                        remove(imageBEst);
-                        remove(imageBNord);
-                        remove(imageBOuest);
-                        break;
-                    case 3://ouest
-                        imageBOuest.setBounds(250, 50, 150, 150);
-                        add(imageBOuest);
-                        remove(imageBSud);
-                        remove(imageBNord);
-                        remove(imageBEst);
-                        break;
+            }
+            //si on delete
+            if (commandes.peekLast() == 3 && PB.new_size < PB.old_size) {
+                sens++;
+                if (sens == 4) {
+                    sens = 0;
                 }
             }
+            if (commandes.peekLast() == 4 && PB.new_size < PB.old_size) {
+                sens--;
+                if (sens == -1) {
+                    sens = 3;
+                }
+            }
+
+            switch (sens) {
+                case 0: //nord
+                    imageBNord.setBounds(250, 50, 150, 150);
+                    add(imageBNord);
+                    remove(imageBSud);
+                    remove(imageBEst);
+                    remove(imageBOuest);
+                    break;
+                case 1: //est
+                    imageBEst.setBounds(250, 50, 150, 150);
+                    add(imageBEst);
+                    remove(imageBSud);
+                    remove(imageBNord);
+                    remove(imageBOuest);
+                    break;
+                case 2: //sud
+                    imageBSud.setBounds(250, 50, 150, 150);
+                    add(imageBSud);
+                    remove(imageBEst);
+                    remove(imageBNord);
+                    remove(imageBOuest);
+                    break;
+                case 3://ouest
+                    imageBOuest.setBounds(250, 50, 150, 150);
+                    add(imageBOuest);
+                    remove(imageBSud);
+                    remove(imageBNord);
+                    remove(imageBEst);
+                    break;
+            }
         }
+
+
+        System.out.println("\noldsize :" + PB.old_size);
+        System.out.println("new size " + PB.new_size);
+        System.out.println("direction du personnage " + person.getDir());
     }
 }
