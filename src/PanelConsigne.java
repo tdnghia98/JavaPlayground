@@ -9,13 +9,13 @@ public class PanelConsigne extends JPanel{
 
     public PanelConsigne(Personnage person) {
         p = person;
-        consigne = new JTextArea("But : collecter tous les diaments et atteindre la case rouge\nDirection: " + p.getDir());
+        consigne = new JTextArea("But : collecter tous les diamants et atteindre la case rouge\nDirection: " + p.getDir());
         con_s = new JScrollPane(consigne);
         con_s.setBounds(10, 10, 400, 70);
         add(con_s);
     }
 
     public void paintComponent(Graphics g) {
-        consigne.setText("But : collecter tous les diaments et atteindre la case rouge\nDirection: " + p.getDir());
+        consigne.setText("But : collecter tous les diamants et atteindre la case rouge\nDirection: " + p.getDir());
     }
 }
