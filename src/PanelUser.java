@@ -34,22 +34,22 @@ public class PanelUser extends JPanel {
         switch (person.dir) {
             case 0: //nord
                 imageBNord.setIcon(new ImageIcon("./graph/BOUSSOLENORD.png"));
-                imageBNord.setBounds(250, 150, 150, 150);
+                imageBNord.setBounds(250, 50, 150, 150);
                 add(imageBNord);
                 break;
             case 1: //est
                 imageBEst.setIcon(new ImageIcon("./graph/BOUSSOLEEST.png"));
-                imageBEst.setBounds(250, 150, 150, 150);
+                imageBEst.setBounds(250, 50, 150, 150);
                 add(imageBEst);
                 break;
             case 2: //sud
                 imageBSud.setIcon(new ImageIcon("./graph/BOUSSOLESUD.png"));
-                imageBSud.setBounds(250, 150, 150, 150);
+                imageBSud.setBounds(250, 50, 150, 150);
                 add(imageBSud);
                 break;
             case 3: //ouest
                 imageBOuest.setIcon(new ImageIcon("./graph/BOUSSOLEOUEST.png"));
-                imageBOuest.setBounds(250, 150, 150, 150);
+                imageBOuest.setBounds(250, 50, 150, 150);
                 add(imageBOuest);
                 break;
 
