@@ -10,8 +10,8 @@ public class PanelButton extends JPanel{
     private JButton delete;
     public LinkedList<Integer> commande;
     PanelUser panUser;
-    int old_size;
-    int new_size;
+
+    int last_old_num;
 
     public PanelButton(){
 
@@ -34,34 +34,56 @@ public class PanelButton extends JPanel{
 
 
         avc.addActionListener(e -> {
-            old_size = commande.size();
+
             commande.add(1);
-            new_size = commande.size();
+
             panUser.repaint();
         });
         coll.addActionListener(e -> {
-            old_size = commande.size();
+
             commande.add(2);
-            new_size = commande.size();
+
             panUser.repaint();
         });
         turnr.addActionListener(e -> {
-            old_size = commande.size();
+
             commande.add(4);
-            new_size = commande.size();
+
+
+            panUser.PositiveRotation();
+            panUser.chooseCompass(panUser.sens);
             panUser.repaint();
         });
         turnl.addActionListener(e -> {
-            old_size = commande.size();
+
             commande.add(3);
-            new_size = commande.size();
+
+
+            panUser.NegativeRotation();
+            panUser.chooseCompass(panUser.sens);
+
             panUser.repaint();
         });
         delete.addActionListener(e -> {
             if (commande.size() > 0) {
-                old_size = commande.size();
+
+                if (commande.peekLast() != null) {
+                    last_old_num = commande.peekLast();
+                    if (last_old_num == 3) {
+                        panUser.PositiveRotation();
+                        panUser.chooseCompass(panUser.sens);
+                    }
+                    if (last_old_num == 4) {
+                        panUser.NegativeRotation();
+                        panUser.chooseCompass(panUser.sens);
+                    }
+                } else {
+                    panUser.sens = 2;
+                    panUser.chooseCompass(panUser.sens);
+                }
                 commande.remove(commande.size() - 1);
-                new_size = commande.size();
+
+
                 panUser.repaint();
             }
         });

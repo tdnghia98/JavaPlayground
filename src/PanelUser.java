@@ -14,7 +14,7 @@ public class PanelUser extends JPanel {
     JLabel imageBEst;
     JLabel imageBSud;
     JLabel imageBOuest;
-    private int sens;
+    int sens;
     PanelButton PB;
 
 
@@ -92,41 +92,56 @@ public class PanelUser extends JPanel {
         uText.setText(commandesAffiche);
 
         //la boussole
-        if (commandes.peekLast() != null) {
-            //System.out.println(commandes.peekLast());
-            if (commandes.peekLast() == 3 && PB.new_size > PB.old_size) {
-                sens--;
-                if (sens == -1) {
-                    sens = 3;
-                }
-            }
-            if (commandes.peekLast() == 4 && PB.new_size > PB.old_size) {
-                sens++;
-                if (sens == 4) {
-                    sens = 0;
-                }
-            }
-            //si on delete
-            if (commandes.peekLast() == 3 && PB.new_size < PB.old_size) {
-                sens++;
-                if (sens == 4) {
-                    sens = 0;
-                }
-            }
-            if (commandes.peekLast() == 4 && PB.new_size < PB.old_size) {
-                sens--;
-                if (sens == -1) {
-                    sens = 3;
-                }
-            }
-            System.out.println("sens: " + sens);
-            chooseCompass(sens);
-        } else {
-            chooseCompass(person.t.dirD);
+//        if (commandes.peekLast() != null) {
+//            System.out.println("peeklast : "+commandes.peekLast());
+//            System.out.println("last num : "+PB.last_old_num);
+//            if (commandes.peekLast() == 3 && PB.new_size > PB.old_size) {
+//                sens--;
+//                if (sens == -1) {
+//                    sens = 3;
+//                }
+//            }
+//            if (commandes.peekLast() == 4 && PB.new_size > PB.old_size) {
+//                sens++;
+//                if (sens == 4) {
+//                    sens = 0;
+//                }
+//            }
+//            //si on delete
+//            if (PB.last_old_num == 3 && PB.new_size < PB.old_size) {
+//                sens++;
+//                if (sens == 4) {
+//                    sens = 0;
+//                }
+//            }
+//            if (PB.last_old_num == 4 && PB.new_size < PB.old_size) {
+//                sens--;
+//                if (sens == -1) {
+//                    sens = 3;
+//                }
+//            }
+//            System.out.println("sens: " + sens);
+//            chooseCompass(sens);
+//        } else {
+//            chooseCompass(person.t.dirD);
+//        }
+//        System.out.println("oldsize :" + PB.old_size);
+//        System.out.println("new size " + PB.new_size+"\n");
+
+    }
+
+    public void PositiveRotation() {
+        sens++;
+        if (sens == 4) {
+            sens = 0;
         }
-        System.out.println("\noldsize :" + PB.old_size);
-        System.out.println("new size " + PB.new_size);
-        System.out.println("direction du personnage " + person.getDir());
+    }
+
+    public void NegativeRotation() {
+        sens--;
+        if (sens == -1) {
+            sens = 3;
+        }
     }
 
     public void chooseCompass(int sens) {

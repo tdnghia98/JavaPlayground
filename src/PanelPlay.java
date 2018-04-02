@@ -63,7 +63,8 @@ public class PanelPlay extends JPanel {
         // Effacer les commandes
         panBut.commande.clear();
         // Reset la boussole
-        panUser.chooseCompass(person.t.dirD);
+        panUser.sens = 2;
+        panUser.chooseCompass(panUser.sens);
         // Repaint les elements
         consigne.repaint();
         panUser.repaint();
