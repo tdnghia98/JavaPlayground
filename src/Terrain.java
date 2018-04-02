@@ -17,7 +17,6 @@ public class Terrain {
         4: personnage
         */
         this.l = l;
-
         map = l.map;
         scoreMax = l.diamond; // =nb Diamants
         nbCai = l.caillou;

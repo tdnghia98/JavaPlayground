@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Scanner;
 
 public class PanelPlay extends JPanel {
     private JButton play;
@@ -32,7 +33,7 @@ public class PanelPlay extends JPanel {
         this.add(play);
         add(reset);
         play.addActionListener((ActionEvent e) -> {
-            System.out.println("Executing!");
+            System.out.println("Play button pressed!");
             for (int i : commandes) {
                 switch (i) {
                     case 1: p.avance();
@@ -46,6 +47,10 @@ public class PanelPlay extends JPanel {
                         break;
                     default: break;
                 }
+//                System.out.println("Press enter to repaint...");
+//                Scanner scanner = new Scanner(System.in);
+//                scanner.nextLine();
+//                System.out.println("Enter key was pressed!");
                 terrePan.repaint();
                 consigne.repaint();
                 panScore.repaint();

@@ -11,9 +11,11 @@ public class Personnage {
     int[][] map_mod;
     int score = 0;
     int scoreMax;
+    boolean end;
 
     public Personnage (Terrain terre){
         t = terre;
+        end = false;
         scoreMax = t.scoreMax;
         map = t.map;
         // Recopier le plan du terrain
@@ -110,7 +112,7 @@ public class Personnage {
                     t.fini = true; // Si on atteint la case finale
                     game_over_dialogue = JOptionPane.showConfirmDialog(null, "Congratulations ! You have finished the game, do you want to quit ?", "GAME OVER", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if (game_over_dialogue == JOptionPane.YES_OPTION) {
-                        System.exit(0);
+                        end = true;
                     }
 
                 } else {
