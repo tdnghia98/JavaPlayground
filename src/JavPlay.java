@@ -71,8 +71,6 @@ public class JavPlay extends JFrame {
         this.setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-
-
     }
 
 

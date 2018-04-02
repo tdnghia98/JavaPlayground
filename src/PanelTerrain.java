@@ -15,6 +15,8 @@ public class PanelTerrain extends JPanel {
     JLabel imageEst;
     JLabel imageSud;
     JLabel imageOuest;
+    JLabel[] diamantLab;
+    JLabel[] caillouLab;
 
 
 
@@ -25,16 +27,23 @@ public class PanelTerrain extends JPanel {
         map_mod = p.map_mod;
         // Creer et ajouter tous les labels et images
         imageCaseFinale = new JLabel();
-        imageDiamant = new JLabel();
-        imageCaillou = new JLabel();
         imageNord = new JLabel();
         imageEst = new JLabel();
         imageSud = new JLabel();
         imageOuest = new JLabel();
-
+        // Tableau de JLabel d caillou et diamants
+        diamantLab = new JLabel[t.scoreMax];
+        caillouLab = new JLabel[t.nbCai];
+        // Associer les icons aux JLabels
+        for (int i = 0; i < diamantLab.length; i++) {
+            diamantLab[i] = new JLabel();
+            diamantLab[i].setIcon(new ImageIcon("./graph/diamant.png"));
+        }
+        for (int i = 0; i < caillouLab.length; i++) {
+            caillouLab[i] = new JLabel();
+            caillouLab[i].setIcon(new ImageIcon("./graph/Caillou 1.png"));
+        }
         imageCaseFinale.setIcon(new ImageIcon("./graph/Case finale.png"));
-        imageDiamant.setIcon(new ImageIcon("./graph/diamant.png"));
-        imageCaillou.setIcon(new ImageIcon("./graph/Caillou 1.png"));
         imageNord.setIcon(new ImageIcon("./graph/Bon homme nord.png"));
         imageEst.setIcon(new ImageIcon("./graph/Bon homme est.png"));
         imageSud.setIcon(new ImageIcon("./graph/Bon homme sud.png"));
@@ -45,16 +54,20 @@ public class PanelTerrain extends JPanel {
 
     public void paintComponent (Graphics g) {
         remove(imageCaseFinale);
-        remove(imageDiamant);
-
-
+        for (int i = 0; i < diamantLab.length; i++) {
+            remove(diamantLab[i]);
+        }
         remove(imageEst);
         remove(imageOuest);
         remove(imageNord);
         remove(imageSud);
         // Dessiner le plan du terrain
         int carre_cote = 50;    // La taille d'une case
-        int[][] map_temp = new int[map.length][map[0].length];
+        int[][] map_temp;
+        // Nb de diamants et cailloux dessines
+        int diamantDessine = 0;
+        int caillouDessine = 0;
+
         for (int i  = 0; i < map.length; i++) {
             for (int j = 0; j < map[0].length; j++) {
 //                System.out.println("i = " + i + " , j = " +j);
@@ -67,7 +80,9 @@ public class PanelTerrain extends JPanel {
                 g2.setColor(Color.green);
                 g.fillRect(j * carre_cote, i * carre_cote, carre_cote, carre_cote);
 //                System.out.println("Coordonne carre: y = " + i*carre_cote + ", x = " + j*carre_cote );
+
                 // On dessine ensuite des objets
+
                 if (map[i][j] == 4 && map_mod[i][j] == 0) {
                     map_temp = map;
                     //System.out.println("Drawing with map");
@@ -75,6 +90,7 @@ public class PanelTerrain extends JPanel {
                     map_temp = map_mod;
                     //System.out.println("Drawing with map_mod");
                 }
+
                 switch (map_temp[i][j]) {    // Taille d'un carre: 50x50 px
                     case 1:  // La case finale
                         imageCaseFinale.setBounds(j * 50, i * 50, 50, 50);
@@ -82,12 +98,14 @@ public class PanelTerrain extends JPanel {
                         break;
                     case 2:
                         //g.setColor(Color.blue); // Le diamant
-                        imageDiamant.setBounds(j * 50, i * 50, 50, 50);
-                        add(imageDiamant);
+                        diamantLab[diamantDessine].setBounds(j * 50, i * 50, 50, 50);
+                        add(diamantLab[diamantDessine]);
+                        diamantDessine++;
                         break;
                     case 3:  // Le caillou
-                        imageCaillou.setBounds(j * 50, i * 50, 50, 50);
-                        add(imageCaillou);
+                        caillouLab[caillouDessine].setBounds(j * 50, i * 50, 50, 50);
+                        add(caillouLab[caillouDessine]);
+                        caillouDessine++;
                         break;
                     case 4:  // Le personnage
                         switch (person.dir) {
@@ -113,8 +131,6 @@ public class PanelTerrain extends JPanel {
                     default:
                         break;
                 }
-
-
 //                System.out.println("map: " + map[i][j] + ", Color: " + g.getColor());
                 g.setColor(Color.green);    // Remettre le vert pour les cases
             }
