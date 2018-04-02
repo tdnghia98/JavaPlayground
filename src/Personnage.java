@@ -1,3 +1,5 @@
+import jdk.nashorn.internal.scripts.JO;
+
 import javax.swing.*;
 import java.util.Arrays;
 
@@ -110,10 +112,11 @@ public class Personnage {
             case 1:
                 if (score == scoreMax) {
                     t.fini = true; // Si on atteint la case finale
-                    game_over_dialogue = JOptionPane.showConfirmDialog(null, "Congratulations ! You have finished the game, do you want to quit ?", "GAME OVER", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    game_over_dialogue = JOptionPane.showConfirmDialog(null, "Congratulations ! You have finished this level, do you want to go to the next ?", "GAME OVER", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if (game_over_dialogue == JOptionPane.YES_OPTION) {
                         end = true;
                     }
+                    //if (game_over_dialogue == JO)
 
                 } else {
                     System.out.println("Pas fini car pas assez de diamants");
@@ -211,16 +214,7 @@ public class Personnage {
 
     @Override
     public String toString() {
-        return "Personnage{" +
-                "px=" + px +
-                ", py=" + py +
-                ", dir=" + dir +
-                ", t=" + t +
-                ", map=" + Arrays.toString(map) +
-                ", map_org=" + Arrays.toString(map_org) +
-                ", score=" + score +
-                ", scoreMax=" + scoreMax +
-                '}';
+        return "Personnage{" + "px=" + px + ", py=" + py + ", dir=" + dir + ", t=" + t + ", map=" + Arrays.toString(map) + ", map_org=" + Arrays.toString(map_org) + ", score=" + score + ", scoreMax=" + scoreMax + '}';
     }
 }
 

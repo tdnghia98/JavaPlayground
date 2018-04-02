@@ -47,10 +47,7 @@ public class PanelPlay extends JPanel {
                         break;
                     default: break;
                 }
-//                System.out.println("Press enter to repaint...");
-//                Scanner scanner = new Scanner(System.in);
-//                scanner.nextLine();
-//                System.out.println("Enter key was pressed!");
+                System.out.println(i);
                 terrePan.repaint();
                 consigne.repaint();
                 panScore.repaint();

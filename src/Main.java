@@ -1,30 +1,11 @@
+import javax.swing.*;
 public class Main {
-    public static Level[] listLevel;
+
 
     public static void main(String[] args) throws InterruptedException {
-        int[][] m = {
-                {4, 0, 0, 0, 0, 0},
-                {0, 0, 3, 0, 0, 0},
-                {2, 0, 1, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0}
-        };
+        int[][] m = {{4, 0, 0, 0, 0, 0}, {0, 0, 3, 0, 0, 0}, {2, 0, 1, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}};
 
-        int[][] m2 = {
-                {4, 0, 0, 0, 0, 0},
-                {0, 0, 3, 0, 0, 0},
-                {2, 0, 1, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 3, 0},
-                {2, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0}
-        };
+        int[][] m2 = {{4, 0, 0, 0, 0, 0}, {0, 0, 3, 0, 0, 0}, {2, 0, 1, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 3, 0}, {2, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0}};
         int[][] m3 = {{4, 0, 0, 0, 0, 0}, {3, 0, 0, 0, 0, 0}, {2, 0, 0, 0, 0, 0}, {0, 3, 0, 0, 0, 0}, {0, 0, 3, 0, 0, 0}, {0, 0, 0, 3, 0, 0}, {0, 0, 0, 0, 3, 2}, {0, 0, 0, 0, 0, 3}, {0, 2, 0, 0, 0, 1}};
 
         Level lvl1 = new Level(m, 1, 1);
@@ -39,23 +20,29 @@ public class Main {
         JavPlay playWindow2 = new JavPlay(terrain2, p2);
         playWindow2.setVisible(false);
 
-        Level[] listLevel = {lvl1, lvl2, lvl3};
-        int a = 0;
+        Terrain terrain3 = new Terrain(lvl3);
+        Personnage p3 = new Personnage(terrain3);
+        JavPlay playWindow3 = new JavPlay(terrain3, p3);
+        playWindow3.setVisible(false);
+
 
         while (p1.end == false) {
             Thread.sleep(10);   // On ne sait pas pourquoi si on ne met rien ca ne change pas au niveau suivant
         }
-        //System.out.println("should be here");
+
         playWindow.setVisible(false);
         playWindow2.setVisible(true);
-        //System.out.println("or here");
         while (p2.end == false) {
             Thread.sleep(10);
         }
+        playWindow2.setVisible(false);
+        playWindow3.setVisible(true);
+
+        while (p3.end == false) {
+            Thread.sleep(10);
+        }
+
         System.exit(0);
-
-
-
 
 
     }
