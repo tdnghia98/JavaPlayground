@@ -19,7 +19,6 @@ public class PanelUser extends JPanel {
 
 
     public PanelUser(PanelButton butts, Personnage p) {
-
         sens = 2;
         person = p;
         commandes = butts.commande;
@@ -93,13 +92,6 @@ public class PanelUser extends JPanel {
         uText.setText(commandesAffiche);
 
         //la boussole
-        if (commandes.peekLast() == null && PB.old_size == PB.new_size) {
-            imageBSud.setBounds(250, 50, 150, 150);
-            add(imageBSud);
-            remove(imageBEst);
-            remove(imageBNord);
-            remove(imageBOuest);
-        }
         if (commandes.peekLast() != null) {
             //System.out.println(commandes.peekLast());
             if (commandes.peekLast() == 3 && PB.new_size > PB.old_size) {
@@ -107,8 +99,6 @@ public class PanelUser extends JPanel {
                 if (sens == -1) {
                     sens = 3;
                 }
-
-
             }
             if (commandes.peekLast() == 4 && PB.new_size > PB.old_size) {
                 sens++;
@@ -129,42 +119,46 @@ public class PanelUser extends JPanel {
                     sens = 3;
                 }
             }
-
-            switch (sens) {
-                case 0: //nord
-                    imageBNord.setBounds(250, 50, 150, 150);
-                    add(imageBNord);
-                    remove(imageBSud);
-                    remove(imageBEst);
-                    remove(imageBOuest);
-                    break;
-                case 1: //est
-                    imageBEst.setBounds(250, 50, 150, 150);
-                    add(imageBEst);
-                    remove(imageBSud);
-                    remove(imageBNord);
-                    remove(imageBOuest);
-                    break;
-                case 2: //sud
-                    imageBSud.setBounds(250, 50, 150, 150);
-                    add(imageBSud);
-                    remove(imageBEst);
-                    remove(imageBNord);
-                    remove(imageBOuest);
-                    break;
-                case 3://ouest
-                    imageBOuest.setBounds(250, 50, 150, 150);
-                    add(imageBOuest);
-                    remove(imageBSud);
-                    remove(imageBNord);
-                    remove(imageBEst);
-                    break;
-            }
+            System.out.println("sens: " + sens);
+            chooseCompass(sens);
+        } else {
+            chooseCompass(person.t.dirD);
         }
-
-
         System.out.println("\noldsize :" + PB.old_size);
         System.out.println("new size " + PB.new_size);
         System.out.println("direction du personnage " + person.getDir());
+    }
+
+    public void chooseCompass(int sens) {
+        switch (sens) {
+            case 0: //nord
+                imageBNord.setBounds(250, 50, 150, 150);
+                add(imageBNord);
+                remove(imageBSud);
+                remove(imageBEst);
+                remove(imageBOuest);
+                break;
+            case 1: //est
+                imageBEst.setBounds(250, 50, 150, 150);
+                add(imageBEst);
+                remove(imageBSud);
+                remove(imageBNord);
+                remove(imageBOuest);
+                break;
+            case 2: //sud
+                imageBSud.setBounds(250, 50, 150, 150);
+                add(imageBSud);
+                remove(imageBEst);
+                remove(imageBNord);
+                remove(imageBOuest);
+                break;
+            case 3://ouest
+                imageBOuest.setBounds(250, 50, 150, 150);
+                add(imageBOuest);
+                remove(imageBSud);
+                remove(imageBNord);
+                remove(imageBEst);
+                break;
+        }
     }
 }

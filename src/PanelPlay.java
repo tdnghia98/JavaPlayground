@@ -8,6 +8,7 @@ public class PanelPlay extends JPanel {
     private JButton play;
     LinkedList<Integer> commandes;
     Personnage person;
+    PanelButton panBut;
     PanelUser panUser;
     PanelTerrain terrePan;
     PanelConsigne consigne;
@@ -20,8 +21,9 @@ public class PanelPlay extends JPanel {
         consigne = cons;
         person = p;
         terrePan = panTerre;
+        panBut = butts;
         // Recevoir le tableau de commande
-        commandes = butts.commande;
+        commandes = panBut.commande;
         // Creer le bouton "Play"
         play = new JButton("Play");
         play.setBounds(10, 5, 100, 40);
@@ -50,19 +52,23 @@ public class PanelPlay extends JPanel {
             }
         });
         reset.addActionListener((ActionEvent e) -> {
-            System.out.println("Resetting!");
-            // Reset
-            p.reset();
-            // Effacer les commandes
-            butts.commande.clear();
-            // Repaint les elements
-            consigne.repaint();
-            panUser.repaint();
-            terrePan.repaint();
-            consigne.repaint();
-            panScore.repaint();
+            reset();
         });
     }
 
-
+    public void reset() {
+        System.out.println("Resetting!");
+        // Reset player
+        person.reset();
+        // Effacer les commandes
+        panBut.commande.clear();
+        // Reset la boussole
+        panUser.chooseCompass(person.t.dirD);
+        // Repaint les elements
+        consigne.repaint();
+        panUser.repaint();
+        terrePan.repaint();
+        consigne.repaint();
+        panScore.repaint();
+    }
 }
