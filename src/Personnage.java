@@ -14,6 +14,8 @@ public class Personnage {
     int score = 0;
     int scoreMax;
     boolean end;
+    JavPlay playWindow;
+    Welcome welcome;
 
     public Personnage (Terrain terre){
         t = terre;
@@ -112,14 +114,21 @@ public class Personnage {
             case 1:
                 if (score == scoreMax) {
                     t.fini = true; // Si on atteint la case finale
-                    game_over_dialogue = JOptionPane.showConfirmDialog(null, "Congratulations ! You have finished this level, do you want to go to the next ?", "GAME OVER", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                    game_over_dialogue = JOptionPane.showConfirmDialog(null, "Congratulations ! You have finished this level, do you want to go to the next ?\n Press 'yes' to go to the next, 'no' to go back to " +
+                            "main menu", "Level Finished", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if (game_over_dialogue == JOptionPane.YES_OPTION) {
                         end = true;
+                    } else {
+                        playWindow.setVisible(false);
+                        playWindow.reset();
+                        welcome.setVisible(true);
                     }
                     //if (game_over_dialogue == JO)
 
                 } else {
                     System.out.println("Pas fini car pas assez de diamants");
+                    JOptionPane.showMessageDialog(null, "Pas fini car pas assez de diamants", "Error", JOptionPane.ERROR_MESSAGE);
+                    playWindow.reset();
                 }
                 break;
             case 2: // Diamond

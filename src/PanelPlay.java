@@ -3,7 +3,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.Scanner;
 
 public class PanelPlay extends JPanel {
     private JButton play;
@@ -33,7 +32,8 @@ public class PanelPlay extends JPanel {
         this.add(play);
         add(reset);
         play.addActionListener((ActionEvent e) -> {
-            System.out.println("Play button pressed!");
+            play.setVisible(false);
+            System.out.println("Executing!");
             for (int i : commandes) {
                 switch (i) {
                     case 1: p.avance();
@@ -47,7 +47,6 @@ public class PanelPlay extends JPanel {
                         break;
                     default: break;
                 }
-                System.out.println(i);
                 terrePan.repaint();
                 consigne.repaint();
                 panScore.repaint();
@@ -60,13 +59,13 @@ public class PanelPlay extends JPanel {
 
     public void reset() {
         System.out.println("Resetting!");
+        play.setVisible(true);
         // Reset player
         person.reset();
         // Effacer les commandes
         panBut.commande.clear();
         // Reset la boussole
-        panUser.sens = 2;
-        panUser.chooseCompass(panUser.sens);
+        panUser.chooseCompass(person.t.dirD);
         // Repaint les elements
         consigne.repaint();
         panUser.repaint();
