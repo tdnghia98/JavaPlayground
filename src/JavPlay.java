@@ -19,7 +19,8 @@ public class JavPlay extends JFrame {
         super("Java Playground");
         p = person;
         terrain = t;
-        this.setSize(800,650);
+        this.setSize(830,680);
+        setLocationRelativeTo(null);
         setLayout(null);
         //panel
         panMain = new JPanel();

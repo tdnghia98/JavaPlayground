@@ -56,6 +56,9 @@ public class Welcome extends JFrame {
             setVisible(false);
         });
 
+        quit.addActionListener((ActionEvent e) -> {
+            System.exit(0);
+        });
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
