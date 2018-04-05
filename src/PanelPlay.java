@@ -83,9 +83,10 @@ public class PanelPlay extends JPanel implements ActionListener {
         panScore.repaint();
     }
 
+    //pour le timer uniquement
     public void actionPerformed(ActionEvent e) {
         if (nb>commandes.size()-1 && commandes!=null) {
-            System.out.println("stop hazu desu");
+            System.out.println("should stop");
             timer.stop();
         }
 
