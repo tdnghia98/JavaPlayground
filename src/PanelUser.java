@@ -22,7 +22,7 @@ public class PanelUser extends JPanel {
         sens = 2;
         person = p;
         commandes = butts.commande;
-        uText = new JTextArea();
+        uText = new JTextArea("bonjour");
         uScroll = new JScrollPane(uText);
         uScroll.setBounds(5,5,200,300);
         add(uScroll);

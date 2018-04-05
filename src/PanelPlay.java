@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class PanelPlay extends JPanel {
+public class PanelPlay extends JPanel implements ActionListener {
     private JButton play;
     LinkedList<Integer> commandes;
     Personnage person;
@@ -14,6 +14,8 @@ public class PanelPlay extends JPanel {
     PanelConsigne consigne;
     PanelScore panScore;
     JButton reset;
+    Timer timer;
+    int nb;
 
     public PanelPlay(PanelButton butts, Personnage p, PanelTerrain panTerre, PanelConsigne cons, PanelScore ps, PanelUser pu) {
         panScore = ps;
@@ -22,6 +24,7 @@ public class PanelPlay extends JPanel {
         person = p;
         terrePan = panTerre;
         panBut = butts;
+        timer = new Timer(500, this);
         // Recevoir le tableau de commande
         commandes = panBut.commande;
         // Creer le bouton "Play"
@@ -34,27 +37,14 @@ public class PanelPlay extends JPanel {
         play.addActionListener((ActionEvent e) -> {
             play.setVisible(false);
             System.out.println("Executing!");
-            for (int i : commandes) {
-                switch (i) {
-                    case 1: p.avance();
-                        break;
-                    case 2:
-                        p.collect();
-                        break;
-                    case 3: p.gauche();
-                        break;
-                    case 4: p.droite();
-                        break;
-                    default: break;
-                }
-                terrePan.repaint();
-                consigne.repaint();
-                panScore.repaint();
-            }
+            nb = 0;
+            timer.start();
+
         });
         reset.addActionListener((ActionEvent e) -> {
             reset();
         });
+
     }
 
     public void reset() {
@@ -73,4 +63,40 @@ public class PanelPlay extends JPanel {
         consigne.repaint();
         panScore.repaint();
     }
+
+    public void step_display(){
+
+    switch (commandes.get(nb)){
+            case 1: person.avance();
+                break;
+            case 2:
+                person.collect();
+                break;
+            case 3: person.gauche();
+                break;
+            case 4: person.droite();
+                break;
+            default: break;
+        }
+        terrePan.repaint();
+        consigne.repaint();
+        panScore.repaint();
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (nb>commandes.size()-1 && commandes!=null) {
+            System.out.println("stop hazu desu");
+            timer.stop();
+        }
+
+        if (nb <= commandes.size()-1 && commandes != null) {
+            System.out.println("commande nb : "+nb);
+            step_display();
+            nb++;
+
+        }
+
+    }
+
+
 }
