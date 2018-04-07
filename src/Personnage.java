@@ -57,8 +57,8 @@ public class Personnage {
         int oldX = px;
         int oldY = py;
         int oldCase = map[py][px];
-        System.out.println("Checking");
-        System.out.println("old position: x = " + px + ". py = " + py + " , dir = " + dir + " , map = " + map_mod[py][px]);
+        //System.out.println("Checking");
+        //System.out.println("old position: x = " + px + ". py = " + py + " , dir = " + dir + " , map = " + map_mod[py][px]);
         int game_over_dialogue;
 
         switch (dir) {
@@ -118,9 +118,13 @@ public class Personnage {
                             "main menu", "Level Finished", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                     if (game_over_dialogue == JOptionPane.YES_OPTION) {
                         end = true;
-                    } else {
+                    }
+                    if (game_over_dialogue ==JOptionPane.NO_OPTION) {
+                        System.out.println("closing the windiw level");
                         playWindow.setVisible(false);
+                        System.out.println("resetting");
                         playWindow.reset();
+                        System.out.println("opening the menu");
                         welcome.setVisible(true);
                     }
                     //if (game_over_dialogue == JO)
@@ -139,11 +143,11 @@ public class Personnage {
                 map[py][px] = 4;    // Colorer la case en couleur du personnage
                 break;
         }
-        System.out.println("Checking");
-        System.out.println("New position: px = " + px + ". py = " + py + " , dir = " + dir);
-        System.out.println("gameover : " +t.fini);
-        System.out.println("type de case :" + map_mod[py][px]);
-        System.out.println();
+//        System.out.println("Checking");
+//        System.out.println("New position: px = " + px + ". py = " + py + " , dir = " + dir);
+//        System.out.println("gameover : " +t.fini);
+//        System.out.println("type de case :" + map_mod[py][px]);
+//        System.out.println();
 
     }
 

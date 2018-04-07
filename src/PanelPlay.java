@@ -92,7 +92,9 @@ public class PanelPlay extends JPanel implements ActionListener {
 
         if (nb <= commandes.size()-1 && commandes != null) {
             System.out.println("commande nb : "+nb);
+            System.out.println("repainting");
             step_display();
+            System.out.println("finished repainting");
             nb++;
 
         }

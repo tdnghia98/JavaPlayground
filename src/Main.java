@@ -52,16 +52,18 @@ public class Main {
                 lvlNo++;
                 if (lvlNo == lvlArray.length) {
                     JOptionPane.showMessageDialog(null,"Congratulation, you have completed all levels" +
-                                    "\nThe progam is quitting...",
+                                    "\nThe game is quitting...",
                             "Winner!",JOptionPane.INFORMATION_MESSAGE);
                     System.exit(0);
                     break;
                 } else {
-                terrain = new Terrain(lvlArray[lvlNo]);
-                p = new Personnage(terrain);
-                playWindow.dispose();
-                playWindow = new JavPlay(terrain, p);
-                playWindow.setVisible(true);
+                    playWindow.dispose();
+                    terrain = new Terrain(lvlArray[lvlNo]);
+                    p = new Personnage(terrain);
+                    playWindow = new JavPlay(terrain, p);
+                    p.playWindow = playWindow;
+                    p.welcome = w;
+                    playWindow.setVisible(true);
                 }
             }
         }

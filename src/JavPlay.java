@@ -68,6 +68,7 @@ public class JavPlay extends JFrame {
         panMain.add(panM);
         panMain.add(panP);
 
+
         this.setContentPane(panMain);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
